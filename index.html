@@ -1,0 +1,640 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Louis Vanlaer — Cybersecurity Portfolio</title>
+  <meta name="description" content="Portfolio cybersécurité de Louis Vanlaer, étudiant à EPITA." />
+  <style>
+    :root {
+      --bg: #0a0d10;
+      --panel: #11161b;
+      --card: #151b21;
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --border: #26313b;
+      --accent: #22c55e;
+      --accent-bg: #11351f;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, #111922 0, #0a0d10 42%);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    a {
+      color: inherit
+    }
+
+    button,
+    input {
+      font: inherit
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 64px
+    }
+
+    .mono {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace
+    }
+
+    .panel,
+    .card {
+      border: 1px solid var(--border);
+      background: rgba(17, 22, 27, .94);
+      border-radius: 20px
+    }
+
+    .card {
+      background: rgba(21, 27, 33, .95);
+      border-radius: 16px
+    }
+
+    .accent {
+      color: var(--accent)
+    }
+
+    .muted {
+      color: var(--muted)
+    }
+
+    .tag {
+      display: inline-flex;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    nav .links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    nav button,
+    .btn,
+    .filter,
+    .project-btn {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 11px 14px;
+      cursor: pointer
+    }
+
+    .btn.primary,
+    .filter.active {
+      background: var(--accent-bg);
+      border-color: #1f6a39
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
+      padding: 34px
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: .95;
+      margin: 18px 0 12px;
+      letter-spacing: -.04em
+    }
+
+    .hero .lead {
+      font-size: 20px;
+      font-weight: 700
+    }
+
+    .hero p {
+      line-height: 1.75
+    }
+
+    .actions,
+    .tags,
+    .filters {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .actions {
+      margin-top: 24px
+    }
+
+    .terminal {
+      overflow: hidden
+    }
+
+    .terminal-head {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 15px;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .terminal-output {
+      height: 330px;
+      overflow: auto;
+      padding: 16px;
+      line-height: 1.55;
+      font-size: 14px;
+      white-space: pre-wrap
+    }
+
+    .terminal-form {
+      display: flex;
+      gap: 8px;
+      border-top: 1px solid var(--border);
+      padding: 12px
+    }
+
+    .terminal-form input {
+      flex: 1;
+      min-width: 0;
+      background: #0c1115;
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px
+    }
+
+    .terminal-form button {
+      background: var(--accent-bg);
+      color: var(--text);
+      border: 1px solid #1f6a39;
+      border-radius: 10px;
+      padding: 10px 15px;
+      cursor: pointer
+    }
+
+    .quick {
+      padding: 0 12px 12px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap
+    }
+
+    section {
+      margin-top: 34px
+    }
+
+    .section-label {
+      font-size: 13px
+    }
+
+    h2 {
+      font-size: 30px;
+      margin: 6px 0 18px
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px
+    }
+
+    .stat {
+      padding: 18px
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px
+    }
+
+    .project {
+      padding: 20px
+    }
+
+    .project h3 {
+      margin: 10px 0 10px;
+      font-size: 22px
+    }
+
+    .project p {
+      line-height: 1.65
+    }
+
+    .project-btn {
+      margin-top: 16px;
+      width: 100%;
+      text-align: left
+    }
+
+    .detail {
+      margin-top: 14px;
+      padding: 20px;
+      display: none
+    }
+
+    .detail.show {
+      display: block
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px
+    }
+
+    .skill {
+      padding: 20px
+    }
+
+    .timeline {
+      padding: 22px
+    }
+
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .timeline-row:last-child {
+      border-bottom: 0
+    }
+
+    .cta {
+      text-align: center;
+      padding: 30px
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding-top: 28px;
+      font-size: 13px
+    }
+
+    @media(max-width:800px) {
+
+      .hero,
+      .projects,
+      .skills {
+        grid-template-columns: 1fr
+      }
+
+      .stats {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .timeline-row {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:500px) {
+      .wrap {
+        width: min(100% - 18px, 1120px)
+      }
+
+      .hero {
+        padding: 22px
+      }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column
+      }
+
+      .stats {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <nav>
+        <div class="mono"><span class="accent">●</span> louis@portfolio <span class="muted">~/cybersecurity</span></div>
+        <div class="links">
+          <button data-scroll="projects">Projets</button>
+          <button data-scroll="skills">Compétences</button>
+          <button data-scroll="journey">Parcours</button>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <div>
+          <div class="mono accent">&gt; INITIALIZING PROFILE...</div>
+          <h1>Louis<br>Vanlaer</h1>
+          <div class="lead">Cybersecurity Student @ EPITA</div>
+          <p class="muted">Je construis des projets autour de la sécurité offensive, de la défense, de Linux et de
+            l’automatisation. Mon objectif : comprendre les systèmes, identifier leurs faiblesses et apprendre à mieux
+            les protéger.</p>
+          <div class="tags">
+            <span class="tag">Pentest</span><span class="tag">Blue Team</span><span class="tag">Python</span><span
+              class="tag">Linux</span><span class="tag">Automation</span>
+          </div>
+          <div class="actions">
+            <button class="btn primary" data-scroll="projects">Explorer mes projets →</button>
+            <button class="btn" id="focus-terminal">Ouvrir le terminal</button>
+          </div>
+        </div>
+
+        <div class="card terminal">
+          <div class="terminal-head mono">
+            <span>terminal</span><span class="muted">bash • interactive</span>
+          </div>
+          <div id="term-output" class="terminal-output mono">PortfolioShell v1.0 — type help to begin.
+
+            <span class="accent">louis@epita</span>:~$ whoami
+            Louis Vanlaer — Cybersecurity Student
+
+            <span class="accent">louis@epita</span>:~$ status
+            [+] Learning [+] Building [+] Looking for opportunities
+          </div>
+          <form id="term-form" class="terminal-form">
+            <span class="mono accent">$</span>
+            <input id="term-input" autocomplete="off" spellcheck="false" placeholder="help">
+            <button type="submit">Run</button>
+          </form>
+          <div class="quick">
+            <button class="tag" data-cmd="help">help</button>
+            <button class="tag" data-cmd="nmap">nmap</button>
+            <button class="tag" data-cmd="projects">projects</button>
+            <button class="tag" data-cmd="skills">skills</button>
+            <button class="tag" data-cmd="clear">clear</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="stats">
+      <div class="card stat"><strong class="mono">04</strong><span class="muted">projets</span></div>
+      <div class="card stat"><strong class="mono">08+</strong><span class="muted">technologies</span></div>
+      <div class="card stat"><strong class="mono">L3</strong><span class="muted">cybersécurité</span></div>
+      <div class="card stat"><strong class="mono">24/7</strong><span class="muted">curiosity mode</span></div>
+    </section>
+
+    <section id="projects">
+      <div class="mono accent section-label">01 / PROJECTS</div>
+      <h2>Ce que je construis</h2>
+      <div class="filters">
+        <button class="filter active" data-filter="all">Tous</button>
+        <button class="filter" data-filter="offensive">Offensif</button>
+        <button class="filter" data-filter="defensive">Défensif</button>
+        <button class="filter" data-filter="automation">Automation</button>
+      </div>
+
+      <div class="projects" style="margin-top:16px">
+        <article class="card project" data-category="offensive automation">
+          <div class="mono accent">PROJECT_01</div>
+          <h3>Pentest Automation Toolkit</h3>
+          <p class="muted">Automatisation de reconnaissance : scan réseau, détection de services, classification des
+            résultats et génération d’un rapport lisible.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Nmap</span><span class="tag">Linux</span>
+          </div>
+          <button class="project-btn" data-project="pentest">Voir les détails →</button>
+        </article>
+
+        <article class="card project" data-category="offensive">
+          <div class="mono accent">PROJECT_02</div>
+          <h3>Web Security Lab</h3>
+          <p class="muted">Laboratoire personnel consacré aux vulnérabilités Web : HTTP, authentification, contrôle
+            d’accès, injections et remédiations.</p>
+          <div class="tags"><span class="tag">Burp Suite</span><span class="tag">OWASP</span><span
+              class="tag">PortSwigger</span></div>
+          <button class="project-btn" data-project="web">Voir les détails →</button>
+        </article>
+
+        <article class="card project" data-category="defensive">
+          <div class="mono accent">PROJECT_03</div>
+          <h3>Linux Hardening Lab</h3>
+          <p class="muted">Sécurisation progressive d’une VM Linux : SSH, comptes, permissions, pare-feu, journalisation
+            et réduction de la surface d’attaque.</p>
+          <div class="tags"><span class="tag">Linux</span><span class="tag">SSH</span><span class="tag">UFW</span></div>
+          <button class="project-btn" data-project="linux">Voir les détails →</button>
+        </article>
+
+        <article class="card project" data-category="automation defensive">
+          <div class="mono accent">PROJECT_04</div>
+          <h3>Volatility QA Interface</h3>
+          <p class="muted">Interface Python de contrôle qualité permettant de comparer des données, détecter des
+            anomalies et faciliter leur visualisation.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span
+              class="tag">Streamlit</span></div>
+          <button class="project-btn" data-project="qa">Voir les détails →</button>
+        </article>
+      </div>
+      <div id="detail" class="panel detail"></div>
+    </section>
+
+    <section id="skills">
+      <div class="mono accent section-label">02 / SKILLS</div>
+      <h2>Stack & environnement</h2>
+      <div class="skills">
+        <div class="card skill">
+          <h3>Security</h3>
+          <div class="tags"><span class="tag">Nmap</span><span class="tag">Burp Suite</span><span
+              class="tag">Wireshark</span><span class="tag">OSINT</span><span class="tag">Active Directory</span><span
+              class="tag">Cryptography</span></div>
+        </div>
+        <div class="card skill">
+          <h3>Systems</h3>
+          <div class="tags"><span class="tag">Linux</span><span class="tag">Windows</span><span
+              class="tag">WSL</span><span class="tag">Git</span><span class="tag">Virtualization</span></div>
+        </div>
+        <div class="card skill">
+          <h3>Programming</h3>
+          <div class="tags"><span class="tag">Python</span><span class="tag">C</span><span class="tag">Rust</span><span
+              class="tag">SQL</span><span class="tag">Java</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="journey">
+      <div class="mono accent section-label">03 / JOURNEY</div>
+      <h2>Parcours</h2>
+      <div class="panel timeline">
+        <div class="timeline-row">
+          <div class="mono accent">2026–2027</div>
+          <div><strong>EPITA — L3 Cybersécurité</strong>
+            <p class="muted">Sécurité réseaux, Linux avancé, Rust sécurisé, Active Directory, cloud, Blue Team, analyse
+              des risques et cryptographie.</p>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="mono accent">Été 2026</div>
+          <div><strong>LSEG / Refinitiv — Stage Python</strong>
+            <p class="muted">Développement d’un outil de QA et de visualisation de données en Python au sein d’une
+              équipe Analytics.</p>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="mono accent">Février à Mai 2025</div>
+          <div><strong>Epitech — L2 Semestre à l’étranger à Barcelone</strong>
+            <p class="muted">Semestre d’études à l’étranger en deuxième année.</p>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="mono accent">Stage d'un mois</div>
+          <div><strong>Association Saint-Raphaël — Agent technique</strong>
+            <p class="muted">Stage en tant qu’agent technique au sein de l’association Saint-Raphaël.</p>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="mono accent">2024-2025</div>
+          <div><strong>EPITA — L1 Cybersécurité</strong>
+            <p class="muted">1ère année au bachelor cybersécurité d'Epita.</p>
+          </div>
+        </div>
+        <div class="timeline-row">
+          <div class="mono accent">Baccalauréat</div>
+          <div><strong>Lycée Frédéric Mistral — Bac général</strong>
+            <p class="muted">Spécialités mathématiques et physique-chimie.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel cta">
+      <div class="mono accent">CONNECTION_READY</div>
+      <h2>Want to inspect the system?</h2>
+      <p class="muted">Teste le terminal avec <span class="mono">help</span>, <span class="mono">nmap</span>, <span
+          class="mono">projects</span>, <span class="mono">skills</span>, <span class="mono">contact</span> ou <span
+          class="mono">sudo</span>.</p>
+      <button id="back-terminal" class="btn primary">Retour au terminal ↑</button>
+    </section>
+
+    <footer>© 2026 Louis Vanlaer — Cybersecurity Portfolio</footer>
+  </div>
+
+  <script>
+    const output = document.getElementById('term-output');
+    const input = document.getElementById('term-input');
+    const form = document.getElementById('term-form');
+    const detail = document.getElementById('detail');
+
+    const responses = {
+      help: `Available commands:
+  whoami     identity
+  skills     technical stack
+  projects   featured projects
+  experience background
+  nmap       portfolio scan
+  contact    contact channels
+  clear      clear terminal
+  sudo       classified command`,
+      whoami: `Louis Vanlaer
+Cybersecurity Student @ EPITA
+Focus: offensive security • blue team • automation`,
+      skills: `[SECURITY] Nmap • Burp Suite • Wireshark • OSINT • Active Directory
+[SYSTEMS]  Linux • Windows • WSL • Git
+[CODE]     Python • C • Rust • SQL • Java`,
+      projects: `01  Pentest Automation Toolkit
+02  Web Security Lab
+03  Linux Hardening Lab
+04  Volatility QA Interface`,
+      experience: `2026      LSEG / Refinitiv — Python QA tooling
+2026–2027 EPITA — L3 Cybersecurity`,
+      contact: `LinkedIn: /in/vanlaer-louis-6a16823b8/
+Status: open to cybersecurity opportunities`,
+      sudo: `Permission denied. Nice try. 😈
+Hint: security starts with least privilege.`,
+      status: `[+] Learning  [+] Building  [+] Looking for opportunities`
+    };
+
+    function addLine(text) {
+      output.textContent += `\n\n${text}`;
+      output.scrollTop = output.scrollHeight;
+    }
+    function runCommand(raw) {
+      const cmd = (raw || '').trim().toLowerCase();
+      if (!cmd) return;
+      if (cmd === 'clear') { output.textContent = ''; return }
+      addLine(`louis@epita:~$ ${cmd}`);
+      if (cmd === 'nmap') {
+        addLine(`Starting PortfolioScan...
+
+PORT      STATE   SERVICE
+22/tcp    open    linux
+80/tcp    open    web-security
+443/tcp   open    cybersecurity
+1337/tcp  open    ctf
+
+Scan complete — 4 services discovered.`);
+        return;
+      }
+      addLine(responses[cmd] || `command not found: ${cmd}\nTry 'help'.`);
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      runCommand(input.value);
+      input.value = '';
+      input.focus();
+    });
+    document.querySelectorAll('[data-cmd]').forEach(b => b.addEventListener('click', () => runCommand(b.dataset.cmd)));
+    document.querySelectorAll('[data-scroll]').forEach(b => b.addEventListener('click', () => document.getElementById(b.dataset.scroll).scrollIntoView({ behavior: 'smooth' })));
+    document.getElementById('focus-terminal').addEventListener('click', () => input.focus());
+    document.getElementById('back-terminal').addEventListener('click', () => { input.scrollIntoView({ behavior: 'smooth', block: 'center' }); input.focus() });
+
+    document.querySelectorAll('.filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter').forEach(x => x.classList.remove('active'));
+        btn.classList.add('active');
+        const f = btn.dataset.filter;
+        document.querySelectorAll('.project').forEach(p => {
+          p.style.display = (f === 'all' || p.dataset.category.split(' ').includes(f)) ? 'block' : 'none';
+        });
+      });
+    });
+
+    const projectData = {
+      pentest: ['Pentest Automation Toolkit', 'Automatiser les premières étapes d’une reconnaissance autorisée.', 'Workflow : cible → Nmap → parsing → analyse des services → rapport Markdown/HTML.', 'À montrer sur GitHub : architecture, captures, exemple de rapport et limites de l’outil.'],
+      web: ['Web Security Lab', 'Documenter ton apprentissage des vulnérabilités Web dans un environnement légal.', 'Modules : HTTP, authentification, contrôle d’accès, injections, XSS et remédiations.', 'À montrer : méthodologie, captures Burp anonymisées et explication défensive de chaque faille.'],
+      linux: ['Linux Hardening Lab', 'Transformer une VM Linux volontairement peu sécurisée en machine mieux durcie.', 'Étapes : comptes → SSH → permissions → UFW → logs → Fail2ban → vérifications.', 'À montrer : état initial, changements, commandes utilisées et comparaison avant/après.'],
+      qa: ['Volatility QA Interface', 'Projet issu de ton expérience en environnement Analytics.', 'Fonctions : comparaison de données, détection d’écarts, nettoyage, visualisation et interface Streamlit.', 'Portfolio : présenter l’architecture et les apprentissages sans publier de données ni code confidentiels.']
+    };
+    document.querySelectorAll('[data-project]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const x = projectData[btn.dataset.project];
+        detail.innerHTML = `<div class="mono accent">PROJECT_DETAIL</div><h3>${x[0]}</h3>${x.slice(1).map(v => `<p class="muted">${v}</p>`).join('')}<button id="close-detail" class="btn">Fermer</button>`;
+        detail.classList.add('show');
+        detail.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('close-detail').addEventListener('click', () => detail.classList.remove('show'));
+      });
+    });
+  </script>
+</body>
+
+</html>
