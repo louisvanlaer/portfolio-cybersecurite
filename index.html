@@ -113,11 +113,32 @@
       border-color: #1f6a39
     }
 
+    #home {
+      min-height: calc(100svh - 56px);
+      display: flex;
+      flex-direction: column;
+    }
+
     .hero {
+      flex: 1;
+      align-items: center;
       display: grid;
-      grid-template-columns: 1.05fr .95fr;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
       gap: 26px;
       padding: 34px
+    }
+
+    .profile-photo {
+      display: block;
+      width: min(100%, 280px);
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      align-self: center;
+      justify-self: center;
     }
 
     .hero h1 {
@@ -129,7 +150,51 @@
 
     .hero .lead {
       font-size: 20px;
-      font-weight: 700
+      font-weight: 700;
+      color: var(--accent);
+      min-height: 4.5em;
+      line-height: 1.5;
+    }
+
+    .typing-cursor {
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .social-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      transition: color .2s, border-color .2s;
+    }
+
+    .social-links a:hover,
+    .social-links a:focus-visible {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .social-links svg {
+      width: 21px;
+      height: 21px;
+      fill: currentColor;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .typing-cursor { display: none; }
     }
 
     .hero p {
@@ -160,7 +225,7 @@
     }
 
     .terminal-output {
-      height: 330px;
+      height: clamp(360px, 60svh, 720px);
       overflow: auto;
       padding: 16px;
       line-height: 1.55;
@@ -266,12 +331,130 @@
 
     .skills {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(40px, 7vw, 100px);
+    }
+
+    #skills {
+      padding: 64px 24px;
+    }
+
+    #skills > .section-label {
+      margin-bottom: 6px;
+    }
+
+    .skills h2 {
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 600;
+      margin: 0 0 52px;
+      letter-spacing: -.025em;
+    }
+
+    .skill-list,
+    .traits {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .skill-list {
+      display: grid;
+      gap: 34px;
     }
 
     .skill {
-      padding: 20px
+      position: relative;
+      padding-top: 25px;
+    }
+
+    .skill-name {
+      display: block;
+      font-size: 12px;
+      line-height: 1.5;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .skill-value {
+      position: absolute;
+      top: -10px;
+      left: var(--level);
+      transform: translateX(-100%);
+      padding: 8px 12px;
+      border-radius: 5px;
+      background: #202224;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .skill-value::after {
+      content: "";
+      position: absolute;
+      right: 8px;
+      bottom: -7px;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 8px solid #202224;
+    }
+
+    .skill-track {
+      height: 7px;
+      background: #202224;
+    }
+
+    .skill-fill {
+      width: var(--level);
+      height: 100%;
+      background: linear-gradient(90deg, #15803d, var(--accent));
+    }
+
+    .skills-note {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .traits {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 70px 24px;
+      padding-top: 16px;
+    }
+
+    .trait {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .trait-icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 62px;
+      height: 62px;
+      border: 1px solid var(--accent);
+      border-radius: 5px;
+      background: var(--accent-bg);
+      color: var(--accent);
+    }
+
+    .trait-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.2;
+    }
+
+    @media(max-width:500px) {
+      #skills { padding: 40px 12px; }
+      .traits { gap: 28px 16px; }
+      .trait { gap: 10px; font-size: 15px; }
+      .trait-icon { flex-basis: 44px; height: 44px; }
     }
 
     .timeline {
@@ -293,6 +476,92 @@
     .cta {
       text-align: center;
       padding: 30px
+    }
+
+    .hobbies-section {
+      padding: 52px 24px 24px;
+    }
+
+    .hobbies-section > h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -.035em;
+      margin-bottom: 12px;
+    }
+
+    .hobbies-command {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 44px;
+    }
+
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .hobby-visual {
+      display: grid;
+      place-items: center;
+      width: min(100%, 240px);
+      aspect-ratio: 1;
+      margin: 0 auto 28px;
+      border-radius: 50%;
+      border: 1px solid #1f6a39;
+      color: var(--accent);
+      background:
+        linear-gradient(rgba(34, 197, 94, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(34, 197, 94, .045) 1px, transparent 1px),
+        radial-gradient(circle, var(--accent-bg), var(--bg) 75%);
+      background-size: 24px 24px, 24px 24px, 100% 100%;
+      box-shadow: inset 0 0 36px rgba(34, 197, 94, .06);
+    }
+
+    .hobby-visual img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+    }
+
+    .hobby-visual svg {
+      width: 52%;
+      height: 52%;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .hobby-index {
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: .1em;
+    }
+
+    .hobby h3 {
+      margin: 10px 0 14px;
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    .hobby p {
+      max-width: 290px;
+      margin: 0 auto;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    @media(max-width:800px) {
+      .hobbies-grid { grid-template-columns: 1fr; gap: 44px; }
+      .hobbies-section { padding: 40px 12px 20px; }
+      .hobby-visual { width: 200px; }
     }
 
     footer {
@@ -342,27 +611,35 @@
 
 <body>
   <div class="wrap">
-    <div class="panel">
+    <div class="panel" id="home">
       <nav>
         <div class="mono"><span class="accent">●</span> louis@portfolio <span class="muted">~/cybersecurity</span></div>
         <div class="links">
+          <button data-scroll="home">Who I Am</button>
+          <button data-scroll="terminal">Terminal</button>
           <button data-scroll="projects">Projets</button>
           <button data-scroll="skills">Compétences</button>
           <button data-scroll="journey">Parcours</button>
+          <button data-scroll="hobbies">Hobbies</button>
         </div>
       </nav>
 
       <div class="hero">
         <div>
-          <div class="mono accent">&gt; INITIALIZING PROFILE...</div>
-          <h1>Louis<br>Vanlaer</h1>
-          <div class="lead">Cybersecurity Student @ EPITA</div>
-          <p class="muted">Je construis des projets autour de la sécurité offensive, de la défense, de Linux et de
-            l’automatisation. Mon objectif : comprendre les systèmes, identifier leurs faiblesses et apprendre à mieux
-            les protéger.</p>
-          <div class="tags">
-            <span class="tag">Pentest</span><span class="tag">Blue Team</span><span class="tag">Python</span><span
-              class="tag">Linux</span><span class="tag">Automation</span>
+          <h1>Louis<br>VANLAER</h1>
+          <div class="lead" aria-label="Étudiant en cybersécurité à l’EPITA. À la recherche d’une alternance d’un an dès septembre 2026, au rythme de 2 semaines en entreprise et 1 semaine à l’école. Mobile partout en France">
+            <span id="typed-profile" aria-hidden="true">Étudiant en cybersécurité à l’EPITA</span><span class="typing-cursor" aria-hidden="true">|</span>
+          </div>
+          <div class="social-links">
+            <a href="mailto:louis.vanlaer1@gmail.com" aria-label="Envoyer un e-mail à Louis Vanlaer" title="louis.vanlaer1@gmail.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/vanlaer-louis/" target="_blank" rel="noopener noreferrer" aria-label="Profil LinkedIn de Louis Vanlaer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95zM6.46 7.9a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.29 10.85H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.74 1.36-1.52 2.79-1.52 2.99 0 3.58 1.97 3.58 4.53z"/></svg>
+            </a>
+            <a href="https://github.com/louisvanlaer" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub de Louis Vanlaer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.09c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1 1.45 2.09 3.3 1.23.1-.73.39-1.23.71-1.51-2.5-.29-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.09 1.15a10.75 10.75 0 0 1 5.62 0c2.14-1.45 3.08-1.15 3.08-1.15.62 1.55.23 2.7.12 2.98.72.79 1.15 1.79 1.15 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v2.81c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75z"/></svg>
+            </a>
           </div>
           <div class="actions">
             <button class="btn primary" data-scroll="projects">Explorer mes projets →</button>
@@ -370,6 +647,13 @@
           </div>
         </div>
 
+        <img class="profile-photo" src="photo.png" alt="Portrait de Louis Vanlaer" width="140" height="140">
+      </div>
+    </div>
+
+    <section id="terminal" aria-labelledby="terminal-title">
+      <div class="mono accent section-label">INTERACTIVE / TERMINAL</div>
+      <h2 id="terminal-title">Explore mon univers</h2>
         <div class="card terminal">
           <div class="terminal-head mono">
             <span>terminal</span><span class="muted">bash • interactive</span>
@@ -395,8 +679,7 @@
             <button class="tag" data-cmd="clear">clear</button>
           </div>
         </div>
-      </div>
-    </div>
+    </section>
 
     <section class="stats">
       <div class="card stat"><strong class="mono">04</strong><span class="muted">projets</span></div>
@@ -458,25 +741,44 @@
       <div id="detail" class="panel detail"></div>
     </section>
 
-    <section id="skills">
+    <section id="skills" aria-labelledby="skills-title">
       <div class="mono accent section-label">02 / SKILLS</div>
-      <h2>Stack & environnement</h2>
       <div class="skills">
-        <div class="card skill">
-          <h3>Security</h3>
-          <div class="tags"><span class="tag">Nmap</span><span class="tag">Burp Suite</span><span
-              class="tag">Wireshark</span><span class="tag">OSINT</span><span class="tag">Active Directory</span><span
-              class="tag">Cryptography</span></div>
+        <div>
+          <h2 id="skills-title">Compétences techniques</h2>
+          <!-- Estimations indicatives adaptées au parcours étudiant et aux projets présentés. -->
+          <ul class="skill-list">
+            <li class="skill" style="--level: 60%">
+              <span class="skill-name">Cryptographie</span><span class="skill-value">60%</span>
+              <div class="skill-track" aria-hidden="true"><div class="skill-fill"></div></div>
+            </li>
+            <li class="skill" style="--level: 45%">
+              <span class="skill-name">Gestion des risques</span><span class="skill-value">45%</span>
+              <div class="skill-track" aria-hidden="true"><div class="skill-fill"></div></div>
+            </li>
+            <li class="skill" style="--level: 60%">
+              <span class="skill-name">Dev & web security</span><span class="skill-value">60%</span>
+              <div class="skill-track" aria-hidden="true"><div class="skill-fill"></div></div>
+            </li>
+            <li class="skill" style="--level: 35%">
+              <span class="skill-name">Connaissance en réseau</span><span class="skill-value">35%</span>
+              <div class="skill-track" aria-hidden="true"><div class="skill-fill"></div></div>
+            </li>
+            <li class="skill" style="--level: 50%">
+              <span class="skill-name">Labs et CTF</span><span class="skill-value">50%</span>
+              <div class="skill-track" aria-hidden="true"><div class="skill-fill"></div></div>
+            </li>
+          </ul>
+          <p class="skills-note">Niveaux indicatifs · En progression au fil de ma formation et de mes projets.</p>
         </div>
-        <div class="card skill">
-          <h3>Systems</h3>
-          <div class="tags"><span class="tag">Linux</span><span class="tag">Windows</span><span
-              class="tag">WSL</span><span class="tag">Git</span><span class="tag">Virtualization</span></div>
-        </div>
-        <div class="card skill">
-          <h3>Programming</h3>
-          <div class="tags"><span class="tag">Python</span><span class="tag">C</span><span class="tag">Rust</span><span
-              class="tag">SQL</span><span class="tag">Java</span></div>
+        <div>
+          <h2 id="traits-title">Caractères</h2>
+          <ul class="traits" aria-labelledby="traits-title">
+            <li class="trait"><span class="trait-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m6 5 3 4m6 6 3 4M5 18l4-3m6-6 4-3M3 12h5m8 0h5M12 3v5m0 8v5"/></svg></span>Curieux</li>
+            <li class="trait"><span class="trait-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m6 5 3 4m6 6 3 4M5 18l4-3m6-6 4-3M3 12h5m8 0h5M12 3v5m0 8v5"/></svg></span>Créatif</li>
+            <li class="trait"><span class="trait-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m6 5 3 4m6 6 3 4M5 18l4-3m6-6 4-3M3 12h5m8 0h5M12 3v5m0 8v5"/></svg></span>Sociable</li>
+            <li class="trait"><span class="trait-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="m6 5 3 4m6 6 3 4M5 18l4-3m6-6 4-3M3 12h5m8 0h5M12 3v5m0 8v5"/></svg></span>Méthodique</li>
+          </ul>
         </div>
       </div>
     </section>
@@ -500,7 +802,7 @@
           </div>
         </div>
         <div class="timeline-row">
-          <div class="mono accent">Février à Mai 2025</div>
+          <div class="mono accent">Février à Mai 2026</div>
           <div><strong>Epitech — L2 Semestre à l’étranger à Barcelone</strong>
             <p class="muted">Semestre d’études à l’étranger en deuxième année.</p>
           </div>
@@ -526,6 +828,39 @@
       </div>
     </section>
 
+
+    <section id="hobbies" class="hobbies-section" aria-labelledby="hobbies-title">
+      <div class="mono accent section-label">04 / HOBBIES</div>
+      <h2 id="hobbies-title">Mes passions</h2>
+      <p class="mono hobbies-command"><span class="accent">louis@portfolio:~$</span> cat passions.txt</p>
+      <div class="hobbies-grid">
+        <article class="hobby">
+          <div class="hobby-visual" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24"/><ellipse cx="32" cy="32" rx="11" ry="24"/><path d="M8 32h48M12 19h40M12 45h40"/><path d="m40 12 13-5-5 13-3-5-5-3Z" fill="var(--accent-bg)"/></svg>
+          </div>
+          <span class="mono hobby-index">01 / EXPLORE</span>
+          <h3>Voyage</h3>
+          <p>Découvrir de nouveaux horizons, d’autres cultures et façons de vivre. Une curiosité nourrie notamment par mon semestre à Barcelone.</p>
+        </article>
+        <article class="hobby">
+          <div class="hobby-visual">
+            <img src="hobby-echecs.jpg" alt="Partie d’échecs entre deux joueurs" width="568" height="421" loading="lazy">
+          </div>
+          <span class="mono hobby-index">02 / THINK</span>
+          <h3>Échecs</h3>
+          <p>Analyser une position, anticiper les coups et construire une stratégie. Un jeu qui mêle logique, patience et créativité.</p>
+        </article>
+        <article class="hobby">
+          <div class="hobby-visual" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><g transform="rotate(-35 32 32)"><rect x="8" y="19" width="8" height="26" rx="2"/><rect x="16" y="14" width="8" height="36" rx="2"/><path d="M24 28h16v8H24M4 28h4v8H4m52-8h4v8h-4"/><rect x="40" y="14" width="8" height="36" rx="2"/><rect x="48" y="19" width="8" height="26" rx="2"/></g></svg>
+          </div>
+          <span class="mono hobby-index">03 / MOVE</span>
+          <h3>Sport</h3>
+          <p>Bouger, me dépasser et garder un équilibre au quotidien. Une façon de déconnecter et de revenir avec une énergie nouvelle.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="panel cta">
       <div class="mono accent">CONNECTION_READY</div>
       <h2>Want to inspect the system?</h2>
@@ -539,6 +874,48 @@
   </div>
 
   <script>
+    // Modifier ici les phrases du texte animé.
+    const profilePhrases = [
+      'Étudiant en cybersécurité à l’EPITA',
+      'À la recherche d’une alternance d’un an dès septembre 2026.',
+      'Rythme : 2 semaines en entreprise et 1 semaine à l’école.',
+      'Mobile partout en France.'
+    ];
+    const typedProfile = document.getElementById('typed-profile');
+    typedProfile.parentElement.setAttribute('aria-label', profilePhrases.join(' '));
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    let phraseIndex = 0;
+    let characterIndex = profilePhrases[0].length;
+    let erasing = true;
+    let typingTimer;
+
+    function typeProfile() {
+      const phrase = profilePhrases[phraseIndex];
+      characterIndex += erasing ? -1 : 1;
+      typedProfile.textContent = phrase.slice(0, characterIndex);
+      let delay = erasing ? 35 : 75;
+      if (characterIndex === 0) {
+        erasing = false;
+        phraseIndex = (phraseIndex + 1) % profilePhrases.length;
+        delay = 300;
+      } else if (!erasing && characterIndex === phrase.length) {
+        erasing = true;
+        delay = 2200;
+      }
+      typingTimer = setTimeout(typeProfile, delay);
+    }
+
+    function startProfileAnimation() {
+      clearTimeout(typingTimer);
+      phraseIndex = 0;
+      characterIndex = profilePhrases[0].length;
+      erasing = true;
+      typedProfile.textContent = reducedMotion.matches ? profilePhrases.join(' — ') : profilePhrases[0];
+      if (!reducedMotion.matches) typingTimer = setTimeout(typeProfile, 2200);
+    }
+    reducedMotion.addEventListener('change', startProfileAnimation);
+    startProfileAnimation();
+
     const output = document.getElementById('term-output');
     const input = document.getElementById('term-input');
     const form = document.getElementById('term-form');
@@ -566,7 +943,7 @@ Focus: offensive security • blue team • automation`,
 04  Volatility QA Interface`,
       experience: `2026      LSEG / Refinitiv — Python QA tooling
 2026–2027 EPITA — L3 Cybersecurity`,
-      contact: `LinkedIn: /in/vanlaer-louis-6a16823b8/
+      contact: `LinkedIn: https://www.linkedin.com/in/vanlaer-louis/
 Status: open to cybersecurity opportunities`,
       sudo: `Permission denied. Nice try. 😈
 Hint: security starts with least privilege.`,
@@ -605,7 +982,10 @@ Scan complete — 4 services discovered.`);
     });
     document.querySelectorAll('[data-cmd]').forEach(b => b.addEventListener('click', () => runCommand(b.dataset.cmd)));
     document.querySelectorAll('[data-scroll]').forEach(b => b.addEventListener('click', () => document.getElementById(b.dataset.scroll).scrollIntoView({ behavior: 'smooth' })));
-    document.getElementById('focus-terminal').addEventListener('click', () => input.focus());
+    document.getElementById('focus-terminal').addEventListener('click', () => {
+      document.getElementById('terminal').scrollIntoView({ behavior: 'smooth' });
+      input.focus({ preventScroll: true });
+    });
     document.getElementById('back-terminal').addEventListener('click', () => { input.scrollIntoView({ behavior: 'smooth', block: 'center' }); input.focus() });
 
     document.querySelectorAll('.filter').forEach(btn => {
