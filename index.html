@@ -528,6 +528,17 @@
       border-radius: 50%;
     }
 
+    .hobby-visual--sport {
+      overflow: hidden;
+    }
+
+    .hobby-visual--sport img {
+      object-position: right top;
+      border-radius: 0;
+      transform: scale(1.5);
+      transform-origin: right top;
+    }
+
     .hobby-visual svg {
       width: 52%;
       height: 52%;
@@ -647,7 +658,7 @@
           </div>
         </div>
 
-        <img class="profile-photo" src="photo.png" alt="Portrait de Louis Vanlaer" width="140" height="140">
+        <img class="profile-photo" src="Photos/photo_de_profil.png" alt="Portrait de Louis Vanlaer" width="140" height="140">
       </div>
     </div>
 
@@ -835,28 +846,28 @@
       <p class="mono hobbies-command"><span class="accent">louis@portfolio:~$</span> cat passions.txt</p>
       <div class="hobbies-grid">
         <article class="hobby">
-          <div class="hobby-visual" aria-hidden="true">
-            <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="24"/><ellipse cx="32" cy="32" rx="11" ry="24"/><path d="M8 32h48M12 19h40M12 45h40"/><path d="m40 12 13-5-5 13-3-5-5-3Z" fill="var(--accent-bg)"/></svg>
+          <div class="hobby-visual">
+            <img src="Photos/rubrique_voyage.jpg" alt="Voyage au Japon" loading="lazy">
           </div>
           <span class="mono hobby-index">01 / EXPLORE</span>
-          <h3>Voyage</h3>
-          <p>Découvrir de nouveaux horizons, d’autres cultures et façons de vivre. Une curiosité nourrie notamment par mon semestre à Barcelone.</p>
+          <h3>Voyages</h3>
+          <p>Depuis mon enfance, j’ai visité plus de dix pays et découvert différentes cultures. Ces voyages m’ont ouvert à d’autres façons de vivre et ont nourri ma curiosité pour le monde.</p>
         </article>
         <article class="hobby">
           <div class="hobby-visual">
-            <img src="hobby-echecs.jpg" alt="Partie d’échecs entre deux joueurs" width="568" height="421" loading="lazy">
+            <img src="Photos/rubrique_echec.jpg" alt="Partie d’échecs entre deux joueurs" width="568" height="421" loading="lazy">
           </div>
           <span class="mono hobby-index">02 / THINK</span>
           <h3>Échecs</h3>
-          <p>Analyser une position, anticiper les coups et construire une stratégie. Un jeu qui mêle logique, patience et créativité.</p>
+          <p>Mon père m’a appris à jouer aux échecs à l’âge de cinq ans, et nous continuons à jouer ensemble. Même si j’ai arrêté les tournois il y a plusieurs années, je joue quotidiennement en ligne, où mon classement se situe autour de 1 700 Elo.</p>
         </article>
         <article class="hobby">
-          <div class="hobby-visual" aria-hidden="true">
-            <svg viewBox="0 0 64 64"><g transform="rotate(-35 32 32)"><rect x="8" y="19" width="8" height="26" rx="2"/><rect x="16" y="14" width="8" height="36" rx="2"/><path d="M24 28h16v8H24M4 28h4v8H4m52-8h4v8h-4"/><rect x="40" y="14" width="8" height="36" rx="2"/><rect x="48" y="19" width="8" height="26" rx="2"/></g></svg>
+          <div class="hobby-visual hobby-visual--sport">
+            <img src="Photos/rubrique_sport.png" alt="Sport" loading="lazy">
           </div>
           <span class="mono hobby-index">03 / MOVE</span>
           <h3>Sport</h3>
-          <p>Bouger, me dépasser et garder un équilibre au quotidien. Une façon de déconnecter et de revenir avec une énergie nouvelle.</p>
+          <p>Le sport fait partie de mon équilibre au quotidien. Après avoir pratiqué plusieurs disciplines, notamment le badminton, je pratique aujourd’hui la musculation pour me sentir mieux dans mon corps et dans ma tête.</p>
         </article>
       </div>
     </section>
