@@ -97,7 +97,6 @@
 
     nav button,
     .btn,
-    .filter,
     .project-btn {
       background: transparent;
       color: var(--text);
@@ -107,8 +106,7 @@
       cursor: pointer
     }
 
-    .btn.primary,
-    .filter.active {
+    .btn.primary {
       background: var(--accent-bg);
       border-color: #1f6a39
     }
@@ -202,8 +200,7 @@
     }
 
     .actions,
-    .tags,
-    .filters {
+    .tags {
       display: flex;
       gap: 10px;
       flex-wrap: wrap
@@ -300,6 +297,36 @@
       gap: 16px
     }
 
+    .training-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+      gap: 16px
+    }
+
+    .training-card {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      min-width: 0
+    }
+
+    .training-card h3 {
+      font-size: 22px;
+      margin: 10px 0
+    }
+
+    .training-card p {
+      line-height: 1.65
+    }
+
+    .training-card .tags {
+      margin-bottom: 20px
+    }
+
+    .training-card .project-btn {
+      margin-top: auto
+    }
+
     .project {
       padding: 20px
     }
@@ -317,6 +344,11 @@
       margin-top: 16px;
       width: 100%;
       text-align: left
+    }
+
+    a.project-btn {
+      display: block;
+      text-decoration: none
     }
 
     .detail {
@@ -630,6 +662,7 @@
           <button data-scroll="terminal">Terminal</button>
           <button data-scroll="projects">Projets</button>
           <button data-scroll="skills">Compétences</button>
+          <button data-scroll="training">Certifications</button>
           <button data-scroll="journey">Parcours</button>
           <button data-scroll="hobbies">Hobbies</button>
         </div>
@@ -638,8 +671,8 @@
       <div class="hero">
         <div>
           <h1>Louis<br>VANLAER</h1>
-          <div class="lead" aria-label="Étudiant en cybersécurité à l’EPITA. À la recherche d’une alternance d’un an dès septembre 2026, au rythme de 2 semaines en entreprise et 1 semaine à l’école. Mobile partout en France">
-            <span id="typed-profile" aria-hidden="true">Étudiant en cybersécurité à l’EPITA</span><span class="typing-cursor" aria-hidden="true">|</span>
+          <div class="lead" aria-label="Bonjour, je m’appelle Louis Vanlaer, étudiant en L3 cybersécurité à l’EPITA. Je recherche un stage de six mois en cybersécurité dès février 2027. Mobile partout en France.">
+            <span id="typed-profile" aria-hidden="true">Bonjour, je m’appelle Louis Vanlaer, étudiant en L3 cybersécurité à l’EPITA.</span><span class="typing-cursor" aria-hidden="true">|</span>
           </div>
           <div class="social-links">
             <a href="mailto:louis.vanlaer1@gmail.com" aria-label="Envoyer un e-mail à Louis Vanlaer" title="louis.vanlaer1@gmail.com">
@@ -650,6 +683,9 @@
             </a>
             <a href="https://github.com/louisvanlaer" target="_blank" rel="noopener noreferrer" aria-label="Profil GitHub de Louis Vanlaer">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .75a11.25 11.25 0 0 0-3.56 21.92c.56.1.77-.24.77-.54v-2.09c-3.13.68-3.79-1.33-3.79-1.33-.51-1.3-1.25-1.65-1.25-1.65-1.02-.7.08-.69.08-.69 1.13.08 1.72 1.16 1.72 1.16 1 .1 1.45 2.09 3.3 1.23.1-.73.39-1.23.71-1.51-2.5-.29-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.43.11-2.98 0 0 .95-.3 3.09 1.15a10.75 10.75 0 0 1 5.62 0c2.14-1.45 3.08-1.15 3.08-1.15.62 1.55.23 2.7.12 2.98.72.79 1.15 1.79 1.15 3.02 0 4.32-2.63 5.27-5.14 5.55.4.35.76 1.03.76 2.08v2.81c0 .3.2.65.78.54A11.25 11.25 0 0 0 12 .75z"/></svg>
+            </a>
+            <a href="https://tryhackme.com/p/lvgames" target="_blank" rel="noopener noreferrer" aria-label="Profil TryHackMe de Louis Vanlaer" title="TryHackMe — lvgames">
+              <svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10.705 0C7.54 0 4.902 2.285 4.349 5.291a4.525 4.525 0 0 0-4.107 4.5 4.525 4.525 0 0 0 4.52 4.52h6.761a.625.625 0 1 0 0-1.25H4.761a3.273 3.273 0 0 1-3.27-3.27A3.273 3.273 0 0 1 6.59 7.08a.625.625 0 0 0 .7-1.035 4.488 4.488 0 0 0-1.68-.69 5.223 5.223 0 0 1 5.096-4.104 5.221 5.221 0 0 1 5.174 4.57 4.489 4.489 0 0 0-.488.305.625.625 0 1 0 .731 1.013 3.245 3.245 0 0 1 1.912-.616 3.278 3.278 0 0 1 3.203 2.61.625.625 0 0 0 1.225-.251 4.533 4.533 0 0 0-4.428-3.61 4.54 4.54 0 0 0-.958.105C16.556 2.328 13.9 0 10.705 0zm5.192 10.64a.925.925 0 0 0-.462.108.913.913 0 0 0-.313.29 1.27 1.27 0 0 0-.175.427 2.39 2.39 0 0 0-.054.514c0 .181.018.353.054.517.036.164.095.307.175.43a.899.899 0 0 0 .313.297c.127.073.281.11.462.11.18 0 .334-.037.46-.11a.897.897 0 0 0 .309-.296c.08-.124.137-.267.173-.431.036-.164.054-.336.054-.517 0-.18-.018-.352-.054-.514a1.271 1.271 0 0 0-.173-.426.901.901 0 0 0-.309-.291.917.917 0 0 0-.46-.108zm6.486 0a.925.925 0 0 0-.462.108.913.913 0 0 0-.313.29 1.27 1.27 0 0 0-.175.427 2.39 2.39 0 0 0-.053.514c0 .181.017.353.053.517.036.164.095.307.175.43a.899.899 0 0 0 .313.297c.127.073.281.11.462.11.18 0 .334-.037.46-.11a.897.897 0 0 0 .31-.296c.078-.124.136-.267.172-.431.036-.164.054-.336.054-.517 0-.18-.018-.352-.054-.514a1.271 1.271 0 0 0-.173-.426.901.901 0 0 0-.308-.291.916.916 0 0 0-.461-.108zm-8.537.068l-.84.618.313.43.476-.368v1.877h.603v-2.557zm6.486 0l-.841.618.314.43.477-.368v1.877h.603v-2.557zm-4.435.445c.08 0 .143.028.193.084.05.057.087.127.114.21.026.083.044.173.054.269a2.541 2.541 0 0 1 0 .533c-.01.097-.028.187-.054.27a.584.584 0 0 1-.114.21.243.243 0 0 1-.193.085.248.248 0 0 1-.195-.086.584.584 0 0 1-.118-.209 1.245 1.245 0 0 1-.056-.27 2.645 2.645 0 0 1 0-.533c.01-.096.029-.186.056-.27a.583.583 0 0 1 .118-.209.25.25 0 0 1 .195-.084zm6.486 0c.08 0 .144.028.193.084.05.057.087.127.114.21.027.083.044.173.054.269a2.541 2.541 0 0 1 0 .533c-.01.097-.027.187-.054.27a.584.584 0 0 1-.114.21.243.243 0 0 1-.193.085.249.249 0 0 1-.195-.086.581.581 0 0 1-.117-.209 1.245 1.245 0 0 1-.056-.27 2.642 2.642 0 0 1 0-.533c.01-.096.028-.186.056-.27a.58.58 0 0 1 .117-.209.25.25 0 0 1 .195-.084zm-2.191 3.51a.93.93 0 0 0-.463.109.908.908 0 0 0-.312.291c-.08.122-.139.263-.175.426a2.383 2.383 0 0 0-.054.514c0 .18.018.353.054.516.036.164.094.308.175.432a.91.91 0 0 0 .312.296.92.92 0 0 0 .463.11c.18 0 .333-.037.46-.11a.892.892 0 0 0 .308-.296 1.32 1.32 0 0 0 .174-.432c.036-.163.054-.335.054-.516 0-.18-.018-.352-.054-.514a1.274 1.274 0 0 0-.174-.426.89.89 0 0 0-.309-.291.918.918 0 0 0-.46-.108zm-6.402.07l-.841.617.314.43.476-.369v1.878h.604v-2.557zm2.125 0l-.841.617.314.43.477-.369v1.878h.603v-2.557zm2.116 0l-.84.617.313.43.477-.369v1.878h.603v-2.557zm2.16.443c.08 0 .144.028.194.085a.605.605 0 0 1 .114.21c.026.083.044.172.053.269a2.639 2.639 0 0 1 0 .532 1.28 1.28 0 0 1-.053.27.585.585 0 0 1-.114.21.244.244 0 0 1-.193.085.25.25 0 0 1-.196-.085.589.589 0 0 1-.117-.21 1.245 1.245 0 0 1-.056-.27 2.597 2.597 0 0 1 0-.532c.01-.097.028-.186.056-.27a.589.589 0 0 1 .117-.209.249.249 0 0 1 .196-.085zm-6.729 3.073a.676.676 0 0 0-.335.078.661.661 0 0 0-.227.211.91.91 0 0 0-.127.31c-.027.118-.04.242-.04.373s.013.256.04.375a.93.93 0 0 0 .127.313.65.65 0 0 0 .227.215c.092.053.204.08.335.08a.655.655 0 0 0 .334-.08.65.65 0 0 0 .225-.215c.057-.09.1-.194.125-.313a1.75 1.75 0 0 0 .04-.375c0-.13-.014-.255-.04-.373a.931.931 0 0 0-.125-.31.658.658 0 0 0-.225-.21.667.667 0 0 0-.334-.08zm3.086 0a.675.675 0 0 0-.336.078.661.661 0 0 0-.226.211.907.907 0 0 0-.127.31 1.69 1.69 0 0 0-.04.373c0 .131.013.256.04.375a.928.928 0 0 0 .127.313c.058.09.134.162.226.215.093.053.205.08.336.08a.655.655 0 0 0 .334-.08.65.65 0 0 0 .224-.215c.058-.09.1-.194.126-.313a1.752 1.752 0 0 0 0-.748.94.94 0 0 0-.126-.31.657.657 0 0 0-.224-.21.667.667 0 0 0-.334-.08zm5.108 0a.675.675 0 0 0-.336.078.661.661 0 0 0-.226.211.91.91 0 0 0-.127.31c-.027.118-.04.242-.04.373s.013.256.04.375a.931.931 0 0 0 .127.313c.058.09.134.162.226.215.093.053.205.08.336.08.13 0 .243-.027.334-.08a.65.65 0 0 0 .224-.215c.058-.09.1-.194.126-.313a1.75 1.75 0 0 0 .04-.375c0-.13-.014-.255-.04-.373a.943.943 0 0 0-.126-.31.657.657 0 0 0-.224-.21.668.668 0 0 0-.334-.08zm-6.658.05l-.61.448.227.311.346-.266v1.362h.438v-1.856zm3.068 0l-.61.448.227.311.346-.266v1.362h.438v-1.856zm5.108 0l-.611.448.228.311.346-.266v1.362h.438v-1.856zm-9.712.322c.058 0 .105.02.14.062a.421.421 0 0 1 .083.151.96.96 0 0 1 .04.196 1.932 1.932 0 0 1 0 .386.954.954 0 0 1-.04.197.421.421 0 0 1-.083.152.176.176 0 0 1-.14.061.18.18 0 0 1-.141-.06.427.427 0 0 1-.085-.153.887.887 0 0 1-.041-.197 1.96 1.96 0 0 1 0-.386.893.893 0 0 1 .04-.196.42.42 0 0 1 .086-.151.181.181 0 0 1 .141-.062zm3.086 0c.058 0 .104.02.14.062a.421.421 0 0 1 .082.151.94.94 0 0 1 .04.196 1.906 1.906 0 0 1 0 .386.93.93 0 0 1-.04.197.421.421 0 0 1-.082.152.176.176 0 0 1-.14.061.18.18 0 0 1-.141-.06.42.42 0 0 1-.086-.153.846.846 0 0 1-.04-.197 1.965 1.965 0 0 1-.011-.195c0-.057.004-.121.01-.191a.849.849 0 0 1 .041-.196.42.42 0 0 1 .086-.151.182.182 0 0 1 .141-.062zm5.108 0c.058 0 .104.02.14.062a.421.421 0 0 1 .082.151.92.92 0 0 1 .04.196 1.963 1.963 0 0 1 0 .386.943.943 0 0 1-.04.197.421.421 0 0 1-.082.152.177.177 0 0 1-.14.061.18.18 0 0 1-.142-.06.437.437 0 0 1-.085-.153.95.95 0 0 1-.04-.197 1.965 1.965 0 0 1-.011-.195c0-.057.004-.121.01-.191a.959.959 0 0 1 .04-.196.47.47 0 0 1 .086-.151.181.181 0 0 1 .142-.062zm-1.684 1.814a.675.675 0 0 0-.336.079.66.66 0 0 0-.227.21.91.91 0 0 0-.127.31 1.731 1.731 0 0 0 0 .748.939.939 0 0 0 .127.314c.059.09.134.162.227.215.093.053.205.08.336.08a.66.66 0 0 0 .334-.08.648.648 0 0 0 .224-.215c.058-.09.1-.195.126-.314a1.737 1.737 0 0 0-.001-.747.928.928 0 0 0-.125-.31.65.65 0 0 0-.224-.211.668.668 0 0 0-.334-.079zm3.063 0a.676.676 0 0 0-.336.079.664.664 0 0 0-.227.21.906.906 0 0 0-.127.31 1.74 1.74 0 0 0 0 .748.936.936 0 0 0 .127.314.66.66 0 0 0 .227.215c.092.053.204.08.336.08a.654.654 0 0 0 .334-.08.648.648 0 0 0 .223-.215c.058-.09.1-.195.126-.314a1.74 1.74 0 0 0 0-.747.928.928 0 0 0-.126-.31.65.65 0 0 0-.223-.211.666.666 0 0 0-.334-.079zm-1.545.05l-.611.448.228.312.346-.267v1.363h.438v-1.856zm-1.518.323c.057 0 .104.02.14.061a.42.42 0 0 1 .082.152.91.91 0 0 1 .04.195 1.966 1.966 0 0 1 0 .387.951.951 0 0 1-.04.197.421.421 0 0 1-.082.152.177.177 0 0 1-.14.06.18.18 0 0 1-.142-.06.428.428 0 0 1-.085-.152.914.914 0 0 1-.04-.197 1.96 1.96 0 0 1-.011-.195c0-.058.003-.122.01-.192a.923.923 0 0 1 .041-.195c.02-.06.048-.11.085-.152a.181.181 0 0 1 .142-.061zm3.063 0c.057 0 .104.02.14.061a.42.42 0 0 1 .082.152.94.94 0 0 1 .04.195 1.91 1.91 0 0 1 0 .387.93.93 0 0 1-.04.197.422.422 0 0 1-.083.152.175.175 0 0 1-.14.06.18.18 0 0 1-.141-.06.423.423 0 0 1-.085-.152.907.907 0 0 1-.04-.197 1.95 1.95 0 0 1 0-.387.915.915 0 0 1 .04-.195c.02-.06.048-.11.085-.152a.182.182 0 0 1 .142-.061zm-9.713.185a.465.465 0 0 0-.232.055.456.456 0 0 0-.157.146.627.627 0 0 0-.089.215 1.168 1.168 0 0 0-.027.259c0 .09.009.177.027.26a.648.648 0 0 0 .089.216c.04.063.093.112.157.149a.459.459 0 0 0 .232.056c.09 0 .168-.02.231-.056a.45.45 0 0 0 .156-.149.67.67 0 0 0 .087-.217 1.218 1.218 0 0 0 0-.518.647.647 0 0 0-.087-.215.448.448 0 0 0-.156-.146.458.458 0 0 0-.23-.055zm1.052.035l-.423.31.158.217.24-.185v.944h.303v-1.286zm-1.052.224c.04 0 .073.014.097.042a.284.284 0 0 1 .057.105.69.69 0 0 1 .028.136c.004.049.007.092.007.133 0 .04-.003.086-.007.135a.684.684 0 0 1-.028.136.285.285 0 0 1-.057.105.123.123 0 0 1-.097.043.125.125 0 0 1-.098-.043.298.298 0 0 1-.059-.105.612.612 0 0 1-.028-.136 1.39 1.39 0 0 1 0-.268.62.62 0 0 1 .028-.136.297.297 0 0 1 .06-.105.125.125 0 0 1 .097-.042zm3.775 1.394a.463.463 0 0 0-.232.054.452.452 0 0 0-.157.146.621.621 0 0 0-.088.214 1.19 1.19 0 0 0 0 .519.641.641 0 0 0 .088.217.46.46 0 0 0 .157.15.458.458 0 0 0 .232.054.454.454 0 0 0 .232-.055.45.45 0 0 0 .155-.149.664.664 0 0 0 .087-.217 1.189 1.189 0 0 0 0-.519.642.642 0 0 0-.087-.214.446.446 0 0 0-.155-.146.459.459 0 0 0-.232-.054zm1.052.034l-.423.31.158.216.24-.185v.945h.303V22.68zm-1.052.223c.04 0 .073.014.098.043a.3.3 0 0 1 .057.105.643.643 0 0 1 .027.135 1.31 1.31 0 0 1 0 .268.654.654 0 0 1-.027.137.307.307 0 0 1-.057.105.124.124 0 0 1-.098.042.125.125 0 0 1-.098-.042.293.293 0 0 1-.059-.105.618.618 0 0 1-.028-.137 1.364 1.364 0 0 1 0-.268.612.612 0 0 1 .028-.135.287.287 0 0 1 .06-.105.123.123 0 0 1 .097-.043z"/></svg>
             </a>
           </div>
           <div class="actions">
@@ -667,34 +703,28 @@
       <h2 id="terminal-title">Explore mon univers</h2>
         <div class="card terminal">
           <div class="terminal-head mono">
-            <span>terminal</span><span class="muted">bash • interactive</span>
+            <span>terminal</span><span class="muted">portfolio • interactif</span>
           </div>
-          <div id="term-output" class="terminal-output mono">PortfolioShell v1.0 — type help to begin.
-
-            <span class="accent">louis@epita</span>:~$ whoami
-            Louis Vanlaer — Cybersecurity Student
-
-            <span class="accent">louis@epita</span>:~$ status
-            [+] Learning [+] Building [+] Looking for opportunities
-          </div>
+          <div id="term-output" class="terminal-output mono" role="log" aria-label="Résultats du terminal">Bienvenue sur mon portfolio. Tapez help pour découvrir les commandes.</div>
           <form id="term-form" class="terminal-form">
             <span class="mono accent">$</span>
-            <input id="term-input" autocomplete="off" spellcheck="false" placeholder="help">
-            <button type="submit">Run</button>
+            <input id="term-input" autocomplete="off" spellcheck="false" placeholder="help" aria-label="Commande du terminal">
+            <button type="submit">Exécuter</button>
           </form>
           <div class="quick">
             <button class="tag" data-cmd="help">help</button>
-            <button class="tag" data-cmd="nmap">nmap</button>
+            <button class="tag" data-cmd="whoami">whoami</button>
             <button class="tag" data-cmd="projects">projects</button>
-            <button class="tag" data-cmd="skills">skills</button>
+            <button class="tag" data-cmd="certifications">certifications</button>
+            <button class="tag" data-cmd="contact">contact</button>
             <button class="tag" data-cmd="clear">clear</button>
           </div>
         </div>
     </section>
 
     <section class="stats">
-      <div class="card stat"><strong class="mono">04</strong><span class="muted">projets</span></div>
-      <div class="card stat"><strong class="mono">08+</strong><span class="muted">technologies</span></div>
+      <div class="card stat"><strong class="mono">05</strong><span class="muted">projets</span></div>
+      <div class="card stat"><strong class="mono">02</strong><span class="muted">certificats de formation</span></div>
       <div class="card stat"><strong class="mono">L3</strong><span class="muted">cybersécurité</span></div>
       <div class="card stat"><strong class="mono">24/7</strong><span class="muted">curiosity mode</span></div>
     </section>
@@ -702,51 +732,64 @@
     <section id="projects">
       <div class="mono accent section-label">01 / PROJECTS</div>
       <h2>Ce que je construis</h2>
-      <div class="filters">
-        <button class="filter active" data-filter="all">Tous</button>
-        <button class="filter" data-filter="offensive">Offensif</button>
-        <button class="filter" data-filter="defensive">Défensif</button>
-        <button class="filter" data-filter="automation">Automation</button>
-      </div>
 
       <div class="projects" style="margin-top:16px">
-        <article class="card project" data-category="offensive automation">
+        <article class="card project" data-category="development">
           <div class="mono accent">PROJECT_01</div>
-          <h3>Pentest Automation Toolkit</h3>
-          <p class="muted">Automatisation de reconnaissance : scan réseau, détection de services, classification des
-            résultats et génération d’un rapport lisible.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">Nmap</span><span class="tag">Linux</span>
-          </div>
-          <button class="project-btn" data-project="pentest">Voir les détails →</button>
+          <h3>Mini Blokus en Python</h3>
+          <p class="muted"><time datetime="2025-05">Mai 2025</time></p>
+          <p class="muted">Projet de programmation réalisé à l’EPITA : une version simplifiée du jeu de société
+            Blokus, développée en Python.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">Jeu de société</span><span class="tag">Projet académique</span></div>
+          <button class="project-btn" data-project="blokus">Voir les détails →</button>
         </article>
 
-        <article class="card project" data-category="offensive">
+        <article class="card project" data-category="defensive">
           <div class="mono accent">PROJECT_02</div>
-          <h3>Web Security Lab</h3>
-          <p class="muted">Laboratoire personnel consacré aux vulnérabilités Web : HTTP, authentification, contrôle
-            d’accès, injections et remédiations.</p>
-          <div class="tags"><span class="tag">Burp Suite</span><span class="tag">OWASP</span><span
-              class="tag">PortSwigger</span></div>
-          <button class="project-btn" data-project="web">Voir les détails →</button>
+          <h3>Laboratoire SOC — Détection et réponse à incident</h3>
+          <p class="muted"><time datetime="2026">2026</time></p>
+          <p class="muted">Projet prévu : centraliser des journaux Linux avec Wazuh, détecter un scénario
+            suspect, analyser les alertes et documenter une réponse à incident dans un laboratoire local.</p>
+          <div class="tags"><span class="tag">Wazuh</span><span class="tag">Linux</span><span class="tag">À réaliser</span>
+          </div>
+          <button class="project-btn" data-project="soc">Voir les détails →</button>
         </article>
 
         <article class="card project" data-category="defensive">
           <div class="mono accent">PROJECT_03</div>
-          <h3>Linux Hardening Lab</h3>
-          <p class="muted">Sécurisation progressive d’une VM Linux : SSH, comptes, permissions, pare-feu, journalisation
-            et réduction de la surface d’attaque.</p>
-          <div class="tags"><span class="tag">Linux</span><span class="tag">SSH</span><span class="tag">UFW</span></div>
-          <button class="project-btn" data-project="linux">Voir les détails →</button>
+          <h3>Mission Paynora</h3>
+          <p class="muted"><time datetime="2026-09">Septembre 2026</time></p>
+          <p class="muted">Étude de cas en groupe sur la sécurité d’une fintech de paiement : classification des actifs,
+            gouvernance des données et proposition d’un plan d’action priorisé.</p>
+          <div class="tags"><span class="tag">Analyse des risques</span><span class="tag">C-I-D</span><span class="tag">Gouvernance</span></div>
+          <button class="project-btn" data-project="paynora">Voir les détails →</button>
         </article>
 
         <article class="card project" data-category="automation defensive">
           <div class="mono accent">PROJECT_04</div>
           <h3>Volatility QA Interface</h3>
+          <p class="muted"><time datetime="2026-07">Juillet</time> – <time datetime="2026-08">août 2026</time></p>
           <p class="muted">Interface Python de contrôle qualité permettant de comparer des données, détecter des
             anomalies et faciliter leur visualisation.</p>
           <div class="tags"><span class="tag">Python</span><span class="tag">pandas</span><span
               class="tag">Streamlit</span></div>
-          <button class="project-btn" data-project="qa">Voir les détails →</button>
+          <button class="project-btn" data-project="qa">En savoir plus →</button>
+        </article>
+
+        <article class="card project" data-category="defensive development">
+          <div class="mono accent">PROJECT_05</div>
+          <h3>Projet de recherche — Authentification Web2 / Web3</h3>
+          <p class="muted"><time datetime="2026-01">Janvier 2026</time></p>
+          <p class="muted"><em>Projet en équipe · EPITA</em></p>
+          <p class="muted">Étude d’une application combinant connexion classique et authentification par portefeuille
+            MetaMask, avec gestion des sessions par JWT.</p>
+          <p class="muted"><strong>Ma contribution :</strong> préparation des livrables et du support de soutenance,
+            structuration des explications sur l’architecture et les mécanismes d’authentification, puis présentation
+            orale du projet et de ses enjeux de sécurité.</p>
+          <div class="tags"><span class="tag">Documentation technique</span><span class="tag">Synthèse</span><span
+              class="tag">Communication orale</span><span class="tag">Travail en équipe</span></div>
+          <a class="project-btn" href="documents/Presentation_Authentification_Web2_Web3.pdf" target="_blank"
+            rel="noopener noreferrer">Voir la présentation</a>
         </article>
       </div>
       <div id="detail" class="panel detail"></div>
@@ -794,8 +837,34 @@
       </div>
     </section>
 
+    <section id="training" aria-labelledby="training-title">
+      <div class="mono accent section-label">03 / CERTIFICATIONS</div>
+      <h2 id="training-title">Certifications</h2>
+      <p class="muted">Deux parcours suivis sur LinkedIn Learning pour compléter ma formation à l’EPITA en cybersécurité et en intelligence artificielle.</p>
+      <div class="training-grid">
+        <article class="card training-card">
+          <div class="mono accent">CYBERSÉCURITÉ</div>
+          <h3>Préparer votre carrière dans la cybersécurité</h3>
+          <p class="muted">Microsoft et LinkedIn · Certificat d’accomplissement<br>
+            Obtenu le <time datetime="2026-09-09">9 septembre 2026</time></p>
+          <div class="tags"><span class="tag">Cybersécurité</span><span class="tag">Sensibilisation à la sécurité de l’information</span><span class="tag">Gestion des menaces et des vulnérabilités</span></div>
+          <a class="project-btn" href="documents/Certificat_Cybersecurite_Microsoft_LinkedIn.pdf" target="_blank" rel="noopener noreferrer"
+            aria-label="Voir le certificat en cybersécurité (PDF, nouvel onglet)">Voir le certificat ↗</a>
+        </article>
+        <article class="card training-card">
+          <div class="mono accent">INTELLIGENCE ARTIFICIELLE</div>
+          <h3>Préparer votre carrière dans l’IA générative</h3>
+          <p class="muted">Microsoft et LinkedIn · Certificat d’accomplissement<br>
+            Obtenu le <time datetime="2026-09-01">1er septembre 2026</time></p>
+          <div class="tags"><span class="tag">IA générative</span><span class="tag">Intelligence artificielle</span><span class="tag">Éthique de l’informatique</span></div>
+          <a class="project-btn" href="documents/Certificat_IA_Generative_Microsoft_LinkedIn.pdf" target="_blank" rel="noopener noreferrer"
+            aria-label="Voir le certificat en IA générative (PDF, nouvel onglet)">Voir le certificat ↗</a>
+        </article>
+      </div>
+    </section>
+
     <section id="journey">
-      <div class="mono accent section-label">03 / JOURNEY</div>
+      <div class="mono accent section-label">04 / JOURNEY</div>
       <h2>Parcours</h2>
       <div class="panel timeline">
         <div class="timeline-row">
@@ -810,6 +879,7 @@
           <div><strong>LSEG / Refinitiv — Stage Python</strong>
             <p class="muted">Développement d’un outil de QA et de visualisation de données en Python au sein d’une
               équipe Analytics.</p>
+            <button class="project-btn" data-project="qa">En savoir plus →</button>
           </div>
         </div>
         <div class="timeline-row">
@@ -822,6 +892,7 @@
           <div class="mono accent">Stage d'un mois</div>
           <div><strong>Association Saint-Raphaël — Agent technique</strong>
             <p class="muted">Stage en tant qu’agent technique au sein de l’association Saint-Raphaël.</p>
+            <a class="project-btn" href="documents/Association-Saint-Raphael.pdf" target="_blank" rel="noopener noreferrer">Voir mon rapport de stage (PDF) ↗</a>
           </div>
         </div>
         <div class="timeline-row">
@@ -841,7 +912,7 @@
 
 
     <section id="hobbies" class="hobbies-section" aria-labelledby="hobbies-title">
-      <div class="mono accent section-label">04 / HOBBIES</div>
+      <div class="mono accent section-label">05 / HOBBIES</div>
       <h2 id="hobbies-title">Mes passions</h2>
       <p class="mono hobbies-command"><span class="accent">louis@portfolio:~$</span> cat passions.txt</p>
       <div class="hobbies-grid">
@@ -874,10 +945,9 @@
 
     <section class="panel cta">
       <div class="mono accent">CONNECTION_READY</div>
-      <h2>Want to inspect the system?</h2>
-      <p class="muted">Teste le terminal avec <span class="mono">help</span>, <span class="mono">nmap</span>, <span
-          class="mono">projects</span>, <span class="mono">skills</span>, <span class="mono">contact</span> ou <span
-          class="mono">sudo</span>.</p>
+      <h2>Envie d’en savoir plus sur mon parcours ?</h2>
+      <p class="muted">Explore le terminal avec <span class="mono">projects</span> pour mes projets,
+        <span class="mono">whoami</span> pour mon profil ou <span class="mono">contact</span> pour me contacter.</p>
       <button id="back-terminal" class="btn primary">Retour au terminal ↑</button>
     </section>
 
@@ -887,9 +957,8 @@
   <script>
     // Modifier ici les phrases du texte animé.
     const profilePhrases = [
-      'Étudiant en cybersécurité à l’EPITA',
-      'À la recherche d’une alternance d’un an dès septembre 2026.',
-      'Rythme : 2 semaines en entreprise et 1 semaine à l’école.',
+      'Bonjour, je m’appelle Louis Vanlaer, étudiant en L3 cybersécurité à l’EPITA.',
+      'Je recherche un stage de six mois en cybersécurité dès février 2027.',
       'Mobile partout en France.'
     ];
     const typedProfile = document.getElementById('typed-profile');
@@ -932,33 +1001,37 @@
     const form = document.getElementById('term-form');
     const detail = document.getElementById('detail');
 
+    const cleanText = element => element.textContent.replace(/\s+/g, ' ').trim();
     const responses = {
-      help: `Available commands:
-  whoami     identity
-  skills     technical stack
-  projects   featured projects
-  experience background
-  nmap       portfolio scan
-  contact    contact channels
-  clear      clear terminal
-  sudo       classified command`,
-      whoami: `Louis Vanlaer
-Cybersecurity Student @ EPITA
-Focus: offensive security • blue team • automation`,
-      skills: `[SECURITY] Nmap • Burp Suite • Wireshark • OSINT • Active Directory
-[SYSTEMS]  Linux • Windows • WSL • Git
-[CODE]     Python • C • Rust • SQL • Java`,
-      projects: `01  Pentest Automation Toolkit
-02  Web Security Lab
-03  Linux Hardening Lab
-04  Volatility QA Interface`,
-      experience: `2026      LSEG / Refinitiv — Python QA tooling
-2026–2027 EPITA — L3 Cybersecurity`,
-      contact: `LinkedIn: https://www.linkedin.com/in/vanlaer-louis/
-Status: open to cybersecurity opportunities`,
-      sudo: `Permission denied. Nice try. 😈
-Hint: security starts with least privilege.`,
-      status: `[+] Learning  [+] Building  [+] Looking for opportunities`
+      help: `Commandes disponibles :
+  whoami      Mon profil
+  status      Ma recherche de stage
+  projects    Les noms de mes projets
+  certifications  Mes certificats Microsoft et LinkedIn
+  hobbies     Mes passions
+  nmap        Les rubriques du portfolio
+  contact     Mes coordonnées et profils
+  clear       Effacer le terminal`,
+      whoami: profilePhrases.join('\n'),
+      status: profilePhrases.slice(1).join('\n'),
+      projects: () => Array.from(document.querySelectorAll('#projects .project h3'), cleanText).join('\n'),
+      certifications: () => Array.from(document.querySelectorAll('#training .training-card'), card =>
+        cleanText(card.querySelector('h3')) + '\n' + cleanText(card.querySelector('p'))
+      ).join('\n\n') + '\n\nLes certificats PDF sont accessibles dans la rubrique Certifications.',
+      hobbies: () => Array.from(document.querySelectorAll('.hobby'), hobby =>
+        cleanText(hobby.querySelector('h3')) + ' — ' + cleanText(hobby.querySelector('p'))
+      ).join('\n\n'),
+      nmap: `Plan du portfolio :
+  Profil       Présentation et recherche de stage
+  Projets      Réalisations, contributions et livrables
+  Compétences  Domaines étudiés et qualités personnelles
+  Certifications  Parcours Microsoft et LinkedIn, avec certificats
+  Parcours     Formation et expériences
+  Passions     Voyages, échecs et sport`,
+      contact: `E-mail : louis.vanlaer1@gmail.com
+LinkedIn : https://www.linkedin.com/in/vanlaer-louis/
+GitHub : https://github.com/louisvanlaer
+TryHackMe : https://tryhackme.com/p/lvgames`
     };
 
     function addLine(text) {
@@ -970,19 +1043,8 @@ Hint: security starts with least privilege.`,
       if (!cmd) return;
       if (cmd === 'clear') { output.textContent = ''; return }
       addLine(`louis@epita:~$ ${cmd}`);
-      if (cmd === 'nmap') {
-        addLine(`Starting PortfolioScan...
-
-PORT      STATE   SERVICE
-22/tcp    open    linux
-80/tcp    open    web-security
-443/tcp   open    cybersecurity
-1337/tcp  open    ctf
-
-Scan complete — 4 services discovered.`);
-        return;
-      }
-      addLine(responses[cmd] || `command not found: ${cmd}\nTry 'help'.`);
+      const response = Object.prototype.hasOwnProperty.call(responses, cmd) ? responses[cmd] : null;
+      addLine(response ? (typeof response === 'function' ? response() : response) : `Commande inconnue : ${cmd}\nTapez « help » pour afficher les commandes disponibles.`);
     }
 
     form.addEventListener('submit', e => {
@@ -999,22 +1061,27 @@ Scan complete — 4 services discovered.`);
     });
     document.getElementById('back-terminal').addEventListener('click', () => { input.scrollIntoView({ behavior: 'smooth', block: 'center' }); input.focus() });
 
-    document.querySelectorAll('.filter').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter').forEach(x => x.classList.remove('active'));
-        btn.classList.add('active');
-        const f = btn.dataset.filter;
-        document.querySelectorAll('.project').forEach(p => {
-          p.style.display = (f === 'all' || p.dataset.category.split(' ').includes(f)) ? 'block' : 'none';
-        });
-      });
-    });
 
     const projectData = {
-      pentest: ['Pentest Automation Toolkit', 'Automatiser les premières étapes d’une reconnaissance autorisée.', 'Workflow : cible → Nmap → parsing → analyse des services → rapport Markdown/HTML.', 'À montrer sur GitHub : architecture, captures, exemple de rapport et limites de l’outil.'],
-      web: ['Web Security Lab', 'Documenter ton apprentissage des vulnérabilités Web dans un environnement légal.', 'Modules : HTTP, authentification, contrôle d’accès, injections, XSS et remédiations.', 'À montrer : méthodologie, captures Burp anonymisées et explication défensive de chaque faille.'],
-      linux: ['Linux Hardening Lab', 'Transformer une VM Linux volontairement peu sécurisée en machine mieux durcie.', 'Étapes : comptes → SSH → permissions → UFW → logs → Fail2ban → vérifications.', 'À montrer : état initial, changements, commandes utilisées et comparaison avant/après.'],
-      qa: ['Volatility QA Interface', 'Projet issu de ton expérience en environnement Analytics.', 'Fonctions : comparaison de données, détection d’écarts, nettoyage, visualisation et interface Streamlit.', 'Portfolio : présenter l’architecture et les apprentissages sans publier de données ni code confidentiels.']
+      blokus: ['Mini Blokus en Python', 'Développement en Python d’une version simplifiée du jeu de société Blokus, dans le cadre de ma formation à l’EPITA.', 'L’objectif : transposer les règles du jeu en logique de programmation pour créer une version numérique du jeu de plateau.', '<strong>Ma contribution :</strong> développement du code de l’application en Python.'],
+      soc: [
+        'Laboratoire SOC — Détection et réponse à incident',
+        'Projet à réaliser — objectif : suivre un incident simulé de la collecte des journaux à la réponse, avec Wazuh et une machine Linux de test.',
+        'Préparation : disposer d’un outil de virtualisation fonctionnel, des images téléchargées et des ressources nécessaires au serveur Wazuh et à la VM Linux.',
+        'Installation : mettre en place Wazuh et son agent sur la VM Linux, vérifier leur communication et dessiner un schéma simple du laboratoire.',
+        'Collecte : vérifier la remontée des journaux SSH, retrouver une connexion normale et expliquer les champs utiles : date, machine, utilisateur et adresse IP source.',
+        'Détection : simuler une série limitée d’échecs de connexion SSH sur un compte de test du laboratoire, puis une connexion réussie. Retrouver les événements et les alertes des règles existantes, identifier la règle déclenchée et distinguer une erreur de saisie d’un comportement répété.',
+        'Investigation : reconstituer la chronologie, identifier le compte et la source, examiner la connexion réussie et rédiger une fiche d’incident avec les preuves, la gravité estimée et les limites de l’analyse. Une alerte seule ne prouve pas une compromission.',
+        'Réponse : tester un blocage temporaire de la source de test sur la VM, vérifier son effet, puis retirer le blocage et confirmer le retour à la normale. Conserver un accès par la console pour éviter de se verrouiller dehors.',
+        'Restitution : produire un README reproductible, un schéma, des captures d’alertes et un court rapport avec chronologie, réponse appliquée, vérification et pistes d’amélioration. Expliquer avec ses propres mots le parcours d’un journal jusqu’à une alerte.',
+        'Critère de réussite : reproduire un scénario complet, expliquer les preuves observées et démontrer une réponse réversible. Les règles personnalisées et la réponse automatique restent des prolongements après ce premier laboratoire.'
+      ],
+      paynora: ['Mission Paynora — Sécurité et gouvernance des actifs', 'Étude de cas académique réalisée en groupe autour de Paynora, une fintech de paiement préparant une migration cloud. Objectif : proposer une protection des actifs adaptée aux risques et aux besoins métiers.', 'Travail réalisé : définition de quatre niveaux de classification, du public au critique, analyse de la confidentialité, de l’intégrité et de la disponibilité (C-I-D), et formalisation des responsabilités dans une matrice RACI.', 'Recommandations : protection des données au repos, en transit et en traitement ; règles de conservation et de destruction ; chiffrement, contrôle des accès, sauvegardes et traçabilité.', 'Plan proposé : cinq actions priorisées sur douze mois, pour un budget estimé à 115 000 € sur une enveloppe de 120 000 €. Les arbitrages explicitent les risques résiduels et les mesures différées, avec une synthèse destinée au comité de direction.'],
+      qa: [
+        'Volatility QA Interface — Stage chez LSEG / Refinitiv',
+        'Lors de mon stage chez LSEG / Refinitiv, j’ai développé une application Python avec Streamlit pour accompagner l’équipe ACE dans le contrôle qualité des données de volatilité.<br>L’outil compare les données de marché et met en évidence les écarts qui nécessitent une vérification.<br>Des graphiques et des indicateurs permettent d’analyser les résultats et d’évaluer la qualité des modèles de volatilité.<br>J’ai également conçu un export des résultats vers Excel et rédigé la documentation pour faciliter l’utilisation et la maintenance de l’application.',
+        '<a class="btn" href="documents/Rapport_de_Stage_LSEG.pdf" target="_blank" rel="noopener noreferrer">Consulter mon rapport de stage (PDF) ↗</a>'
+      ]
     };
     document.querySelectorAll('[data-project]').forEach(btn => {
       btn.addEventListener('click', () => {
