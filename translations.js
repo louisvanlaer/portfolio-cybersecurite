@@ -104,7 +104,7 @@
   const frenchPhrases = [...profilePhrases];
   const frenchHelp = responses.help;
   const frenchMap = responses.nmap;
-  const welcome = output.textContent;
+  const frenchWhoami = responses.whoami;
   const description = document.querySelector('meta[name="description"]');
   const frenchDescription = description.content;
   const textBindings = [];
@@ -152,7 +152,8 @@
   Certifications  Microsoft and LinkedIn learning paths and certificates
   Background   Education and experience
   Interests    Travel, chess and sport` : frenchMap;
-    output.textContent = en ? 'Welcome to my portfolio. Type help to discover the commands.' : welcome;
+    responses.whoami = en ? 'Hello, I am Louis Vanlaer, a third-year Cybersecurity student at EPITA. Passionate about this field, I develop my skills through hands-on labs and personal projects. Curious and open to the different areas of cybersecurity, I am looking for a six-month internship starting in February 2027.' : frenchWhoami;
+    output.textContent = '';
     commandHistory.forEach(command => runCommand(command, false));
     document.querySelectorAll('[data-language]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.language === language)));
     try { localStorage.setItem('portfolio-language', language); } catch { /* Language switching also works when storage is unavailable. */ }

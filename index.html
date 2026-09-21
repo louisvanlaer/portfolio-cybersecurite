@@ -734,7 +734,7 @@
           <div class="terminal-head mono">
             <span>terminal</span><span class="muted">portfolio • interactif</span>
           </div>
-          <div id="term-output" class="terminal-output mono" role="log" aria-label="Résultats du terminal">Bienvenue sur mon portfolio. Tapez help pour découvrir les commandes.</div>
+          <div id="term-output" class="terminal-output mono" role="log" aria-label="Résultats du terminal"></div>
           <form id="term-form" class="terminal-form">
             <span class="mono accent">$</span>
             <input id="term-input" autocomplete="off" spellcheck="false" placeholder="help" aria-label="Commande du terminal">
@@ -1041,7 +1041,7 @@
   nmap        Les rubriques du portfolio
   contact     Mes coordonnées et profils
   clear       Effacer le terminal`,
-      whoami: () => profilePhrases.join('\n'),
+      whoami: 'Bonjour, je suis Louis Vanlaer, étudiant en L3 Cybersécurité à l’EPITA. Passionné par ce domaine, je développe mes compétences au moyen de labs pratiques et de projets personnels. Curieux et ouvert aux différentes spécialités de la cybersécurité, je recherche un stage de six mois à partir de février 2027.',
       status: () => profilePhrases.slice(1).join('\n'),
       projects: () => Array.from(document.querySelectorAll('#projects .project h3'), cleanText).join('\n'),
       certifications: () => Array.from(document.querySelectorAll('#training .training-card'), card =>
