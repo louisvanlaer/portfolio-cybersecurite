@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Louis Vanlaer — Cybersecurity Portfolio</title>
+  <title>Louis Vanlaer — Portfolio cybersécurité</title>
   <meta name="description" content="Portfolio cybersécurité de Louis Vanlaer, étudiant à EPITA." />
   <style>
     :root {
@@ -88,6 +88,33 @@
       padding: 14px 18px;
       border-bottom: 1px solid var(--border)
     }
+
+    .language-switch {
+      display: flex;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-bottom: 12px;
+    }
+    .language-switch button {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 40px;
+      padding: 8px 12px;
+      background: var(--panel);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .language-switch button[aria-pressed="true"] {
+      border-color: var(--accent);
+      background: var(--accent-bg);
+    }
+    .language-switch button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .language-switch img { width: 24px; height: 16px; object-fit: cover; }
+    nav { flex-wrap: wrap; }
+    nav > .mono { overflow-wrap: anywhere; }
 
     nav .links {
       display: flex;
@@ -652,17 +679,21 @@
 
 <body>
   <div class="wrap">
+    <div class="language-switch" role="group" aria-label="Langue / Language">
+      <button type="button" data-language="fr" lang="fr" aria-label="Français" aria-pressed="true" title="Français"><img src="Photos/flag-fr.svg" alt="">FR</button>
+      <button type="button" data-language="en" lang="en" aria-label="English" aria-pressed="false" title="English"><img src="Photos/flag-gb.svg" alt="">EN</button>
+    </div>
     <div class="panel" id="home">
       <nav>
-        <div class="mono"><span class="accent">●</span> louis@portfolio <span class="muted">~/cybersecurity</span></div>
+        <div class="mono"><span class="accent">●</span> louis@portfolio <span class="muted">~/cybersécurité</span></div>
         <div class="links">
-          <button data-scroll="home">Who I Am</button>
+          <button data-scroll="home">Moi</button>
           <button data-scroll="terminal">Terminal</button>
           <button data-scroll="projects">Projets</button>
           <button data-scroll="skills">Compétences</button>
           <button data-scroll="training">Certifications</button>
           <button data-scroll="journey">Parcours</button>
-          <button data-scroll="hobbies">Hobbies</button>
+          <button data-scroll="hobbies">Passions</button>
         </div>
       </nav>
 
@@ -697,8 +728,8 @@
     </div>
 
     <section id="terminal" aria-labelledby="terminal-title">
-      <div class="mono accent section-label">INTERACTIVE / TERMINAL</div>
-      <h2 id="terminal-title">Explore mon univers</h2>
+      <div class="mono accent section-label">INTERACTIF / TERMINAL</div>
+      <h2 id="terminal-title">Terminal interactif</h2>
         <div class="card terminal">
           <div class="terminal-head mono">
             <span>terminal</span><span class="muted">portfolio • interactif</span>
@@ -724,16 +755,16 @@
       <div class="card stat"><strong class="mono">05</strong><span class="muted">projets</span></div>
       <div class="card stat"><strong class="mono">02</strong><span class="muted">certificats de formation</span></div>
       <div class="card stat"><strong class="mono">L3</strong><span class="muted">cybersécurité</span></div>
-      <div class="card stat"><strong class="mono">24/7</strong><span class="muted">curiosity mode</span></div>
+      <div class="card stat"><strong class="mono">24/7</strong><span class="muted">toujours curieux</span></div>
     </section>
 
     <section id="projects">
-      <div class="mono accent section-label">01 / PROJECTS</div>
+      <div class="mono accent section-label">01 / PROJETS</div>
       <h2>Ce que je construis</h2>
 
       <div class="projects" style="margin-top:16px">
         <article class="card project" data-category="development">
-          <div class="mono accent">PROJECT_01</div>
+          <div class="mono accent">PROJET_01</div>
           <h3>Mini Blokus en Python</h3>
           <p class="muted"><time datetime="2025-05">Mai 2025</time></p>
           <p class="muted">Projet de programmation réalisé à l’EPITA : une version simplifiée du jeu de société
@@ -743,7 +774,7 @@
         </article>
 
         <article class="card project" data-category="defensive">
-          <div class="mono accent">PROJECT_02</div>
+          <div class="mono accent">PROJET_02</div>
           <h3>Laboratoire SOC — Détection et réponse à incident</h3>
           <p class="muted"><time datetime="2026">2026</time></p>
           <p class="muted">Projet prévu : centraliser des journaux Linux avec Wazuh, détecter un scénario
@@ -754,18 +785,18 @@
         </article>
 
         <article class="card project" data-category="defensive">
-          <div class="mono accent">PROJECT_03</div>
+          <div class="mono accent">PROJET_03</div>
           <h3>Mission Paynora</h3>
           <p class="muted"><time datetime="2026-09">Septembre 2026</time></p>
-          <p class="muted">Étude de cas en groupe sur la sécurité d’une fintech de paiement : classification des actifs,
+          <p class="muted">Étude de cas en groupe sur la sécurité d’une entreprise de technologies financières spécialisée dans le paiement : classification des actifs,
             gouvernance des données et proposition d’un plan d’action priorisé.</p>
           <div class="tags"><span class="tag">Analyse des risques</span><span class="tag">C-I-D</span><span class="tag">Gouvernance</span></div>
           <button class="project-btn" data-project="paynora">Voir les détails →</button>
         </article>
 
         <article class="card project" data-category="automation defensive">
-          <div class="mono accent">PROJECT_04</div>
-          <h3>Volatility QA Interface</h3>
+          <div class="mono accent">PROJET_04</div>
+          <h3>Interface de contrôle qualité des données de volatilité</h3>
           <p class="muted"><time datetime="2026-07">Juillet</time> – <time datetime="2026-08">août 2026</time></p>
           <p class="muted">Interface Python de contrôle qualité permettant de comparer des données, détecter des
             anomalies et faciliter leur visualisation.</p>
@@ -775,7 +806,7 @@
         </article>
 
         <article class="card project" data-category="defensive development">
-          <div class="mono accent">PROJECT_05</div>
+          <div class="mono accent">PROJET_05</div>
           <h3>Projet de recherche — Authentification Web2 / Web3</h3>
           <p class="muted"><time datetime="2026-01">Janvier 2026</time></p>
           <p class="muted"><em>Projet en équipe · EPITA</em></p>
@@ -794,30 +825,30 @@
     </section>
 
     <section id="skills" aria-labelledby="skills-title">
-      <div class="mono accent section-label">02 / SKILLS</div>
+      <div class="mono accent section-label">02 / COMPÉTENCES</div>
       <div class="skills">
         <div>
           <h2 id="skills-title">Compétences techniques</h2>
           <!-- Estimations indicatives adaptées au parcours étudiant et aux projets présentés. -->
           <ul class="skill-list">
-            <li class="skill" style="--level: 60%">
-              <span class="skill-name">Cryptographie</span><span class="skill-value">60%</span>
-              <div class="skill-track" aria-hidden="true"><div class="skill-fill"></div></div>
-            </li>
-            <li class="skill" style="--level: 45%">
-              <span class="skill-name">Gestion des risques</span><span class="skill-value">45%</span>
+            <li class="skill" style="--level: 65%">
+              <span class="skill-name">Cybersécurité systèmes &amp; réseaux</span><span class="skill-value">65%</span>
               <div class="skill-track" aria-hidden="true"><div class="skill-fill"></div></div>
             </li>
             <li class="skill" style="--level: 60%">
-              <span class="skill-name">Dev & web security</span><span class="skill-value">60%</span>
+              <span class="skill-name">Programmation (Python, C, Rust)</span><span class="skill-value">60%</span>
               <div class="skill-track" aria-hidden="true"><div class="skill-fill"></div></div>
             </li>
-            <li class="skill" style="--level: 35%">
-              <span class="skill-name">Connaissance en réseau</span><span class="skill-value">35%</span>
+            <li class="skill" style="--level: 60%">
+              <span class="skill-name">IA générative &amp; outils IA</span><span class="skill-value">60%</span>
+              <div class="skill-track" aria-hidden="true"><div class="skill-fill"></div></div>
+            </li>
+            <li class="skill" style="--level: 55%">
+              <span class="skill-name">Analyse des risques &amp; protection des données</span><span class="skill-value">55%</span>
               <div class="skill-track" aria-hidden="true"><div class="skill-fill"></div></div>
             </li>
             <li class="skill" style="--level: 50%">
-              <span class="skill-name">Labs et CTF</span><span class="skill-value">50%</span>
+              <span class="skill-name">Laboratoires de cybersécurité &amp; défis CTF</span><span class="skill-value">50%</span>
               <div class="skill-track" aria-hidden="true"><div class="skill-fill"></div></div>
             </li>
           </ul>
@@ -862,21 +893,21 @@
     </section>
 
     <section id="journey">
-      <div class="mono accent section-label">04 / JOURNEY</div>
+      <div class="mono accent section-label">04 / PARCOURS</div>
       <h2>Parcours</h2>
       <div class="panel timeline">
         <div class="timeline-row">
           <div class="mono accent">2026–2027</div>
           <div><strong>EPITA — L3 Cybersécurité</strong>
-            <p class="muted">Sécurité réseaux, Linux avancé, Rust sécurisé, Active Directory, cloud, Blue Team, analyse
+            <p class="muted">Sécurité réseaux, Linux avancé, Rust sécurisé, Active Directory, informatique en nuage, défense informatique, analyse
               des risques et cryptographie.</p>
           </div>
         </div>
         <div class="timeline-row">
           <div class="mono accent">Été 2026</div>
           <div><strong>LSEG / Refinitiv — Stage Python</strong>
-            <p class="muted">Développement d’un outil de QA et de visualisation de données en Python au sein d’une
-              équipe Analytics.</p>
+            <p class="muted">Développement d’un outil de contrôle qualité et de visualisation de données en Python au sein d’une
+              équipe d’analyse de données.</p>
             <button class="project-btn" data-project="qa">En savoir plus →</button>
           </div>
         </div>
@@ -910,15 +941,15 @@
 
 
     <section id="hobbies" class="hobbies-section" aria-labelledby="hobbies-title">
-      <div class="mono accent section-label">05 / HOBBIES</div>
+      <div class="mono accent section-label">05 / PASSIONS</div>
       <h2 id="hobbies-title">Mes passions</h2>
       <p class="mono hobbies-command"><span class="accent">louis@portfolio:~$</span> cat passions.txt</p>
       <div class="hobbies-grid">
         <article class="hobby">
           <div class="hobby-visual">
-            <img src="Photos/rubrique_voyage.jpg" alt="Voyage au Japon" loading="lazy">
+            <img src="Photos/photo-voyage.png" alt="Vue de Barcelone depuis le parc Güell" loading="lazy">
           </div>
-          <span class="mono hobby-index">01 / EXPLORE</span>
+          <span class="mono hobby-index">01 / EXPLORER</span>
           <h3>Voyages</h3>
           <p>Depuis mon enfance, j’ai visité plus de dix pays et découvert différentes cultures. Ces voyages m’ont ouvert à d’autres façons de vivre et ont nourri ma curiosité pour le monde.</p>
         </article>
@@ -926,7 +957,7 @@
           <div class="hobby-visual">
             <img src="Photos/rubrique_echec.jpg" alt="Partie d’échecs entre deux joueurs" width="568" height="421" loading="lazy">
           </div>
-          <span class="mono hobby-index">02 / THINK</span>
+          <span class="mono hobby-index">02 / RÉFLÉCHIR</span>
           <h3>Échecs</h3>
           <p>Mon père m’a appris à jouer aux échecs à l’âge de cinq ans, et nous continuons à jouer ensemble. Même si j’ai arrêté les tournois il y a plusieurs années, je joue quotidiennement en ligne, où mon classement se situe autour de 1 700 Elo.</p>
         </article>
@@ -934,27 +965,27 @@
           <div class="hobby-visual hobby-visual--sport">
             <img src="Photos/photo-sport.png" alt="Sport" loading="lazy">
           </div>
-          <span class="mono hobby-index">03 / MOVE</span>
+          <span class="mono hobby-index">03 / BOUGER</span>
           <h3>Sport</h3>
-          <p>Le sport fait partie de mon équilibre au quotidien. Après avoir pratiqué plusieurs disciplines, notamment le badminton, je pratique aujourd’hui la musculation pour me sentir mieux dans mon corps et dans ma tête.</p>
+          <p>Le sport m’aide à me détendre et à déconnecter lorsque je passe plus de dix heures par jour devant un ordinateur. C’est un moment pour me vider la tête et retrouver un équilibre au quotidien.</p>
         </article>
       </div>
     </section>
 
     <section class="panel cta">
-      <div class="mono accent">CONNECTION_READY</div>
+      <div class="mono accent">PRÊT À ÉCHANGER</div>
       <h2>Envie d’en savoir plus sur mon parcours ?</h2>
       <p class="muted">Explore le terminal avec <span class="mono">projects</span> pour mes projets,
         <span class="mono">whoami</span> pour mon profil ou <span class="mono">contact</span> pour me contacter.</p>
       <button id="back-terminal" class="btn primary">Retour au terminal ↑</button>
     </section>
 
-    <footer>© 2026 Louis Vanlaer — Cybersecurity Portfolio</footer>
+    <footer>© 2026 Louis Vanlaer — Portfolio cybersécurité</footer>
   </div>
 
   <script>
     // Modifier ici les phrases du texte animé.
-    const profilePhrases = [
+    let profilePhrases = [
       'Bonjour, je m’appelle Louis Vanlaer, étudiant en L3 cybersécurité à l’EPITA.',
       'Je recherche un stage de six mois en cybersécurité dès février 2027.',
       'Mobile partout en France.'
@@ -1010,12 +1041,12 @@
   nmap        Les rubriques du portfolio
   contact     Mes coordonnées et profils
   clear       Effacer le terminal`,
-      whoami: profilePhrases.join('\n'),
-      status: profilePhrases.slice(1).join('\n'),
+      whoami: () => profilePhrases.join('\n'),
+      status: () => profilePhrases.slice(1).join('\n'),
       projects: () => Array.from(document.querySelectorAll('#projects .project h3'), cleanText).join('\n'),
       certifications: () => Array.from(document.querySelectorAll('#training .training-card'), card =>
         cleanText(card.querySelector('h3')) + '\n' + cleanText(card.querySelector('p'))
-      ).join('\n\n') + '\n\nLes certificats PDF sont accessibles dans la rubrique Certifications.',
+      ).join('\n\n') + '\n\n' + (document.documentElement.lang === 'en' ? 'PDF certificates are available in the Certifications section.' : 'Les certificats PDF sont accessibles dans la rubrique Certifications.'),
       hobbies: () => Array.from(document.querySelectorAll('.hobby'), hobby =>
         cleanText(hobby.querySelector('h3')) + ' — ' + cleanText(hobby.querySelector('p'))
       ).join('\n\n'),
@@ -1036,13 +1067,15 @@ TryHackMe : https://tryhackme.com/p/lvgames`
       output.textContent += `\n\n${text}`;
       output.scrollTop = output.scrollHeight;
     }
-    function runCommand(raw) {
+    const commandHistory = [];
+    function runCommand(raw, remember = true) {
       const cmd = (raw || '').trim().toLowerCase();
       if (!cmd) return;
+      if (remember) commandHistory.push(cmd);
       if (cmd === 'clear') { output.textContent = ''; return }
       addLine(`louis@epita:~$ ${cmd}`);
       const response = Object.prototype.hasOwnProperty.call(responses, cmd) ? responses[cmd] : null;
-      addLine(response ? (typeof response === 'function' ? response() : response) : `Commande inconnue : ${cmd}\nTapez « help » pour afficher les commandes disponibles.`);
+      addLine(response ? (typeof response === 'function' ? response() : response) : (document.documentElement.lang === 'en' ? `Unknown command: ${cmd}\nType "help" to list available commands.` : `Commande inconnue : ${cmd}\nTapez « help » pour afficher les commandes disponibles.`));
     }
 
     form.addEventListener('submit', e => {
@@ -1071,26 +1104,32 @@ TryHackMe : https://tryhackme.com/p/lvgames`
         'Détection : simuler une série limitée d’échecs de connexion SSH sur un compte de test du laboratoire, puis une connexion réussie. Retrouver les événements et les alertes des règles existantes, identifier la règle déclenchée et distinguer une erreur de saisie d’un comportement répété.',
         'Investigation : reconstituer la chronologie, identifier le compte et la source, examiner la connexion réussie et rédiger une fiche d’incident avec les preuves, la gravité estimée et les limites de l’analyse. Une alerte seule ne prouve pas une compromission.',
         'Réponse : tester un blocage temporaire de la source de test sur la VM, vérifier son effet, puis retirer le blocage et confirmer le retour à la normale. Conserver un accès par la console pour éviter de se verrouiller dehors.',
-        'Restitution : produire un README reproductible, un schéma, des captures d’alertes et un court rapport avec chronologie, réponse appliquée, vérification et pistes d’amélioration. Expliquer avec ses propres mots le parcours d’un journal jusqu’à une alerte.',
+        'Restitution : produire un guide de reproduction, un schéma, des captures d’alertes et un court rapport avec chronologie, réponse appliquée, vérification et pistes d’amélioration. Expliquer avec ses propres mots le parcours d’un journal jusqu’à une alerte.',
         'Critère de réussite : reproduire un scénario complet, expliquer les preuves observées et démontrer une réponse réversible. Les règles personnalisées et la réponse automatique restent des prolongements après ce premier laboratoire.'
       ],
-      paynora: ['Mission Paynora — Sécurité et gouvernance des actifs', 'Étude de cas académique réalisée en groupe autour de Paynora, une fintech de paiement préparant une migration cloud. Objectif : proposer une protection des actifs adaptée aux risques et aux besoins métiers.', 'Travail réalisé : définition de quatre niveaux de classification, du public au critique, analyse de la confidentialité, de l’intégrité et de la disponibilité (C-I-D), et formalisation des responsabilités dans une matrice RACI.', 'Recommandations : protection des données au repos, en transit et en traitement ; règles de conservation et de destruction ; chiffrement, contrôle des accès, sauvegardes et traçabilité.', 'Plan proposé : cinq actions priorisées sur douze mois, pour un budget estimé à 115 000 € sur une enveloppe de 120 000 €. Les arbitrages explicitent les risques résiduels et les mesures différées, avec une synthèse destinée au comité de direction.'],
+      paynora: ['Mission Paynora — Sécurité et gouvernance des actifs', 'Étude de cas académique réalisée en groupe autour de Paynora, une entreprise de technologies financières spécialisée dans le paiement préparant une migration vers une infrastructure en nuage. Objectif : proposer une protection des actifs adaptée aux risques et aux besoins métiers.', 'Travail réalisé : définition de quatre niveaux de classification, du public au critique, analyse de la confidentialité, de l’intégrité et de la disponibilité (C-I-D), et formalisation des responsabilités dans une matrice RACI.', 'Recommandations : protection des données au repos, en transit et en traitement ; règles de conservation et de destruction ; chiffrement, contrôle des accès, sauvegardes et traçabilité.', 'Plan proposé : cinq actions priorisées sur douze mois, pour un budget estimé à 115 000 € sur une enveloppe de 120 000 €. Les arbitrages explicitent les risques résiduels et les mesures différées, avec une synthèse destinée au comité de direction.'],
       qa: [
-        'Volatility QA Interface — Stage chez LSEG / Refinitiv',
+        'Interface de contrôle qualité des données de volatilité — Stage chez LSEG / Refinitiv',
         'Lors de mon stage chez LSEG / Refinitiv, j’ai développé une application Python avec Streamlit pour accompagner l’équipe ACE dans le contrôle qualité des données de volatilité.<br>L’outil compare les données de marché et met en évidence les écarts qui nécessitent une vérification.<br>Des graphiques et des indicateurs permettent d’analyser les résultats et d’évaluer la qualité des modèles de volatilité.<br>J’ai également conçu un export des résultats vers Excel et rédigé la documentation pour faciliter l’utilisation et la maintenance de l’application.',
         '<a class="btn" href="documents/Rapport_de_Stage_LSEG.pdf" target="_blank" rel="noopener noreferrer">Consulter mon rapport de stage (PDF) ↗</a>'
       ]
     };
+    let activeProject = null;
+    function renderProject(key) {
+      const x = projectData[key];
+      detail.innerHTML = `<div class="mono accent">${document.documentElement.lang === 'en' ? 'PROJECT DETAILS' : 'DÉTAILS DU PROJET'}</div><h3>${x[0]}</h3>${x.slice(1).map(v => `<p class="muted">${v}</p>`).join('')}<button id="close-detail" class="btn">${document.documentElement.lang === 'en' ? 'Close' : 'Fermer'}</button>`;
+      document.getElementById('close-detail').addEventListener('click', () => { detail.classList.remove('show'); activeProject = null; });
+    }
     document.querySelectorAll('[data-project]').forEach(btn => {
       btn.addEventListener('click', () => {
-        const x = projectData[btn.dataset.project];
-        detail.innerHTML = `<div class="mono accent">PROJECT_DETAIL</div><h3>${x[0]}</h3>${x.slice(1).map(v => `<p class="muted">${v}</p>`).join('')}<button id="close-detail" class="btn">Fermer</button>`;
+        activeProject = btn.dataset.project;
+        renderProject(activeProject);
         detail.classList.add('show');
         detail.scrollIntoView({ behavior: 'smooth' });
-        document.getElementById('close-detail').addEventListener('click', () => detail.classList.remove('show'));
       });
     });
   </script>
+  <script src="translations.js"></script>
 </body>
 
 </html>
