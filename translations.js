@@ -18,6 +18,8 @@
     "Projet en binôme · EPITA": "Two-person project · EPITA",
     "Simulation d’une ferme connectée en Python avec MQTT : capteurs de température et d’humidité, ventilation et irrigation automatisées. Sécurisation progressive des échanges par authentification, chiffrement AES, protection anti-rejeu et contrôle d’accès.": "Python simulation of a connected farm using MQTT: temperature and humidity sensors, automated ventilation and irrigation. Progressive security improvements through authentication, AES encryption, replay protection and access control.",
     "Consulter le rapport Smart Farm (PDF) ↗": "Read the Smart Farm report (PDF) ↗",
+    "Consulter le document Mission Paynora (PDF) ↗": "Read the Mission Paynora document (PDF) ↗",
+    "Consulter mon rapport de stage (PDF) ↗": "Read my internship report (PDF) ↗",
     "01 / EXPLORER": "01 / EXPLORE",
     "02 / RÉFLÉCHIR": "02 / THINK",
     "03 / BOUGER": "03 / MOVE",
