@@ -777,11 +777,11 @@
           <div class="mono accent">PROJET_02</div>
           <h3>Laboratoire SOC — Détection et réponse à incident</h3>
           <p class="muted"><time datetime="2026">2026</time></p>
-          <p class="muted">Projet prévu : centraliser des journaux Linux avec Wazuh, détecter un scénario
-            suspect, analyser les alertes et documenter une réponse à incident dans un laboratoire local.</p>
-          <div class="tags"><span class="tag">Wazuh</span><span class="tag">Linux</span><span class="tag">À réaliser</span>
+          <p class="muted">Laboratoire réalisé avec Wazuh : collecte des journaux Windows, détection de cinq échecs de connexion et investigation SOC N1 d’un incident simulé.</p>
+          <div class="tags"><span class="tag">Wazuh</span><span class="tag">Windows</span><span class="tag">SOC N1</span><span class="tag">Réalisé</span>
           </div>
           <button class="project-btn" data-project="soc">Voir les détails →</button>
+          <a class="project-btn" href="documents/Rapport_SOC_Wazuh.pdf" target="_blank" rel="noopener noreferrer">Consulter le rapport SOC (PDF) ↗</a>
         </article>
 
         <article class="card project" data-category="defensive">
@@ -1097,15 +1097,13 @@ TryHackMe : https://tryhackme.com/p/lvgames`
       blokus: ['Mini Blokus en Python', 'Développement en Python d’une version simplifiée du jeu de société Blokus, dans le cadre de ma formation à l’EPITA.', 'L’objectif : transposer les règles du jeu en logique de programmation pour créer une version numérique du jeu de plateau.', '<strong>Ma contribution :</strong> développement du code de l’application en Python.', '<a class="btn" href="https://github.com/louisvanlaer/projet_blokus" target="_blank" rel="noopener noreferrer">Voir le projet Blokus sur GitHub ↗</a>'],
       soc: [
         'Laboratoire SOC — Détection et réponse à incident',
-        'Projet à réaliser — objectif : suivre un incident simulé de la collecte des journaux à la réponse, avec Wazuh et une machine Linux de test.',
-        'Préparation : disposer d’un outil de virtualisation fonctionnel, des images téléchargées et des ressources nécessaires au serveur Wazuh et à la VM Linux.',
-        'Installation : mettre en place Wazuh et son agent sur la VM Linux, vérifier leur communication et dessiner un schéma simple du laboratoire.',
-        'Collecte : vérifier la remontée des journaux SSH, retrouver une connexion normale et expliquer les champs utiles : date, machine, utilisateur et adresse IP source.',
-        'Détection : simuler une série limitée d’échecs de connexion SSH sur un compte de test du laboratoire, puis une connexion réussie. Retrouver les événements et les alertes des règles existantes, identifier la règle déclenchée et distinguer une erreur de saisie d’un comportement répété.',
-        'Investigation : reconstituer la chronologie, identifier le compte et la source, examiner la connexion réussie et rédiger une fiche d’incident avec les preuves, la gravité estimée et les limites de l’analyse. Une alerte seule ne prouve pas une compromission.',
-        'Réponse : tester un blocage temporaire de la source de test sur la VM, vérifier son effet, puis retirer le blocage et confirmer le retour à la normale. Conserver un accès par la console pour éviter de se verrouiller dehors.',
-        'Restitution : produire un guide de reproduction, un schéma, des captures d’alertes et un court rapport avec chronologie, réponse appliquée, vérification et pistes d’amélioration. Expliquer avec ses propres mots le parcours d’un journal jusqu’à une alerte.',
-        'Critère de réussite : reproduire un scénario complet, expliquer les preuves observées et démontrer une réponse réversible. Les règles personnalisées et la réponse automatique restent des prolongements après ce premier laboratoire.'
+        '<a class="btn" href="documents/Rapport_SOC_Wazuh.pdf" target="_blank" rel="noopener noreferrer">Consulter le rapport SOC (PDF) ↗</a>',
+        "Laboratoire réalisé en octobre 2026 : déploiement de Wazuh sur une VM Ubuntu sous VirtualBox et collecte des journaux de sécurité d’un poste Windows via un agent Wazuh.",
+        "Détection : création d’une règle personnalisée corrélant cinq échecs de connexion Windows (événement 4625) en 120 secondes. Une simulation locale autorisée sur un compte fictif a déclenché l’alerte de niveau 10 attendue.",
+        "Investigation SOC N1 : reconstitution de la chronologie, analyse du compte ciblé, de l’origine locale et des codes d’échec, puis recherche des connexions réussies (événement 4624) dans Wazuh Dashboard.",
+        "Résultats : les trois connexions réussies examinées correspondent au compte Système et à des sessions de service. Aucun accès non autorisé n’a été mis en évidence dans le périmètre étudié.",
+        "Réponse et restitution : qualification de la simulation, justification de l’absence de confinement et recommandation de clôture après archivage des preuves et validation. Rédaction d’un rapport avec chronologie, analyse, captures et pistes d’amélioration."
+
       ],
       paynora: ['Mission Paynora — Sécurité et gouvernance des actifs', 'Étude de cas académique réalisée en groupe autour de Paynora, une entreprise de technologies financières spécialisée dans le paiement préparant une migration vers une infrastructure en nuage. Objectif : proposer une protection des actifs adaptée aux risques et aux besoins métiers.', 'Travail réalisé : définition de quatre niveaux de classification, du public au critique, analyse de la confidentialité, de l’intégrité et de la disponibilité (C-I-D), et formalisation des responsabilités dans une matrice RACI.', 'Recommandations : protection des données au repos, en transit et en traitement ; règles de conservation et de destruction ; chiffrement, contrôle des accès, sauvegardes et traçabilité.', 'Plan proposé : cinq actions priorisées sur douze mois, pour un budget estimé à 115 000 € sur une enveloppe de 120 000 €. Les arbitrages explicitent les risques résiduels et les mesures différées, avec une synthèse destinée au comité de direction.', '<a class="btn" href="documents/Mission_Paynora.pdf" target="_blank" rel="noopener noreferrer">Consulter le document Mission Paynora (PDF) ↗</a>'],
       qa: [

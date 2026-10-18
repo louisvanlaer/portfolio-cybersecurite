@@ -30,8 +30,8 @@
     'Projet de programmation réalisé à l’EPITA : une version simplifiée du jeu de société Blokus, développée en Python.': 'Programming project at EPITA: a simplified version of the Blokus board game, developed in Python.',
     'Jeu de société': 'Board game', 'Projet académique': 'Academic project', 'Voir les détails →': 'View details →',
     'Laboratoire SOC — Détection et réponse à incident': 'SOC Lab — Detection and Incident Response',
-    'Projet prévu : centraliser des journaux Linux avec Wazuh, détecter un scénario suspect, analyser les alertes et documenter une réponse à incident dans un laboratoire local.': 'Planned project: centralize Linux logs with Wazuh, detect suspicious activity, analyze alerts and document incident response in a local lab.',
-    'À réaliser': 'Planned',
+    "Laboratoire réalisé avec Wazuh : collecte des journaux Windows, détection de cinq échecs de connexion et investigation SOC N1 d’un incident simulé.": "Completed Wazuh lab: Windows log collection, detection of five failed logins and Tier 1 SOC investigation of a simulated incident.",
+    'Réalisé': 'Completed',
     'Étude de cas en groupe sur la sécurité d’une entreprise de technologies financières spécialisée dans le paiement : classification des actifs, gouvernance des données et proposition d’un plan d’action priorisé.': 'Group case study on payment fintech security: asset classification, data governance and a proposed prioritized action plan.',
     'Analyse des risques': 'Risk analysis', 'C-I-D': 'CIA', 'Gouvernance': 'Governance',
     'Interface Python de contrôle qualité permettant de comparer des données, détecter des anomalies et faciliter leur visualisation.': 'Python quality assurance interface for comparing data, detecting anomalies and visualizing results.',
@@ -67,6 +67,7 @@
     "Stage d'un mois": 'One-month internship', 'Association Saint-Raphaël — Agent technique': 'Association Saint-Raphaël — Technical Assistant',
     'Stage en tant qu’agent technique au sein de l’association Saint-Raphaël.': 'Internship as a technical assistant at Association Saint-Raphaël.',
     'Voir mon rapport de stage (PDF) ↗': 'View my internship report (PDF) ↗',
+    'Consulter le rapport SOC (PDF) ↗': 'Read the SOC report (PDF) ↗',
     'EPITA — L1 Cybersécurité': 'EPITA — First-year Cybersecurity', "1ère année au bachelor cybersécurité d'Epita.": "First year of EPITA's Bachelor's degree in Cybersecurity.",
     'Baccalauréat': 'French Baccalaureate', 'Lycée Frédéric Mistral — Bac général': 'Lycée Frédéric Mistral — General Baccalaureate',
     'Spécialités mathématiques et physique-chimie.': 'Specializations in mathematics and physics-chemistry.',
@@ -87,15 +88,13 @@
     blokus: ['Mini Blokus in Python', 'Developing a simplified version of the Blokus board game in Python as part of my studies at EPITA.', 'Objective: translate the rules into programming logic to create a digital board game.', '<strong>My contribution:</strong> developing the application code in Python.', '<a class="btn" href="https://github.com/louisvanlaer/projet_blokus" target="_blank" rel="noopener noreferrer">View the Blokus project on GitHub ↗</a>'],
     soc: [
       'SOC Lab — Detection and Incident Response',
-      'Planned project — objective: follow a simulated incident from log collection to response using Wazuh and a Linux test machine.',
-      'Preparation: set up working virtualization software, download the images and allocate resources for the Wazuh server and Linux VM.',
-      'Installation: set up Wazuh and its agent on the Linux VM, verify communication and draw a simple lab diagram.',
-      'Collection: verify SSH log ingestion, identify a normal connection and explain the useful fields: date, machine, user and source IP address.',
-      'Detection: simulate a limited series of failed SSH logins on a lab test account, followed by a successful login. Locate the events and alerts from existing rules, identify the triggered rule and distinguish a typing error from repeated behavior.',
-      'Investigation: reconstruct the timeline, identify the account and source, examine the successful login and write an incident report with evidence, estimated severity and analysis limitations. An alert alone does not prove a compromise.',
-      'Response: test a temporary block of the test source on the VM, verify its effect, then remove the block and confirm normal operation. Keep console access to avoid locking yourself out.',
-      'Deliverables: produce a reproducible README, a diagram, alert screenshots and a short report covering the timeline, response, verification and improvements. Explain in your own words how a log becomes an alert.',
-      'Success criteria: reproduce a complete scenario, explain the observed evidence and demonstrate a reversible response. Custom rules and automated responses remain follow-up work after this first lab.'
+      '<a class="btn" href="documents/Rapport_SOC_Wazuh.pdf" target="_blank" rel="noopener noreferrer">Read the SOC report (PDF) ↗</a>',
+        "Lab completed in October 2026: deployed Wazuh on an Ubuntu VM in VirtualBox and collected Windows security logs through a Wazuh agent.",
+        "Detection: created a custom rule correlating five failed Windows logins (event 4625) within 120 seconds. An authorized local simulation using a fictitious account triggered the expected level 10 alert.",
+        "Tier 1 SOC investigation: reconstructed the timeline, analyzed the targeted account, local source and failure codes, then searched for successful logins (event 4624) in Wazuh Dashboard.",
+        "Results: the three successful logins reviewed belonged to the System account and service sessions. No unauthorized access was identified within the investigated scope.",
+        "Response and reporting: classified the simulation, explained why containment was unnecessary and recommended closure after evidence archiving and validation. Wrote a report covering the timeline, analysis, screenshots and improvements."
+
     ],
     paynora: ['Mission Paynora — Asset Security and Governance', 'Group academic case study on Paynora, a payment fintech preparing a cloud migration. Objective: propose asset protection aligned with risks and business needs.', 'Work completed: defined four classification levels, from public to critical; analyzed confidentiality, integrity and availability (CIA); and formalized responsibilities in a RACI matrix.', 'Recommendations: protect data at rest, in transit and in use; define retention and destruction policies; apply encryption, access controls, backups and traceability.', 'Proposed plan: five prioritized actions over twelve months, with an estimated budget of €115,000 within a €120,000 allocation. Trade-offs explain residual risks and deferred measures, with a summary for the steering committee.', '<a class="btn" href="documents/Mission_Paynora.pdf" target="_blank" rel="noopener noreferrer">Read the Mission Paynora document (PDF) ↗</a>'],
     qa: ['Volatility QA Interface — Internship at LSEG / Refinitiv', 'During my internship at LSEG / Refinitiv, I developed a Python application with Streamlit to support the ACE team in quality assurance of volatility data.<br>The tool compares market data and highlights discrepancies requiring review.<br>Charts and indicators help analyze results and assess the quality of volatility models.<br>I also built an Excel export and wrote documentation to make the application easier to use and maintain.', '<a class="btn" href="documents/Rapport_de_Stage_LSEG.pdf" target="_blank" rel="noopener noreferrer">Read my internship report (PDF) ↗</a>']
