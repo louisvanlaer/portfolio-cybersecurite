@@ -752,7 +752,7 @@
     </section>
 
     <section class="stats">
-      <div class="card stat"><strong class="mono">05</strong><span class="muted">projets</span></div>
+      <div class="card stat"><strong class="mono">06</strong><span class="muted">projets</span></div>
       <div class="card stat"><strong class="mono">02</strong><span class="muted">certificats de formation</span></div>
       <div class="card stat"><strong class="mono">L3</strong><span class="muted">cybersécurité</span></div>
       <div class="card stat"><strong class="mono">24/7</strong><span class="muted">toujours curieux</span></div>
@@ -819,6 +819,15 @@
               class="tag">Communication orale</span><span class="tag">Travail en équipe</span></div>
           <a class="project-btn" href="documents/Presentation_Authentification_Web2_Web3.pdf" target="_blank"
             rel="noopener noreferrer">Voir la présentation</a>
+        </article>
+        <article class="card project" data-category="defensive development">
+          <div class="mono accent">PROJET_06</div>
+          <h3>Smart Farm IoT</h3>
+          <p class="muted"><em>Projet en binôme · EPITA</em></p>
+          <p class="muted">Simulation d’une ferme connectée en Python avec MQTT : capteurs de température et d’humidité, ventilation et irrigation automatisées. Sécurisation progressive des échanges par authentification, chiffrement AES, protection anti-rejeu et contrôle d’accès.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">IoT</span><span class="tag">MQTT</span><span class="tag">Mosquitto</span><span class="tag">AES</span></div>
+          <button class="project-btn" data-project="smartfarm">Voir les détails →</button>
+          <a class="project-btn" href="documents/SMARTFARM.pdf" target="_blank" rel="noopener noreferrer">Consulter le rapport Smart Farm (PDF) ↗</a>
         </article>
       </div>
       <div id="detail" class="panel detail"></div>
@@ -1094,6 +1103,15 @@ TryHackMe : https://tryhackme.com/p/lvgames`
 
 
     const projectData = {
+      smartfarm: [
+        'Smart Farm IoT',
+        'Mini-projet réalisé en binôme avec Ziyad Makroum : simulation logicielle d’une ferme connectée en Python, avec deux capteurs, un contrôleur et deux actionneurs communiquant en MQTT via un broker Mosquitto.',
+        'Automatisation : les capteurs publient des mesures de température et d’humidité. Le contrôleur déclenche la ventilation au-delà de 30 °C et l’irrigation sous 40 % d’humidité ; les actionneurs sont simulés dans la console.',
+        'Analyse et sécurisation : observation des messages en clair avec Wireshark, ajout de tokens d’authentification et chiffrement AES des messages. Mise en place d’une vérification anti-rejeu fondée sur des horodatages et des nonces.',
+        'Contrôle d’accès : désactivation des connexions anonymes au broker, ajout de comptes et configuration des ACL pour limiter chaque dispositif aux topics nécessaires à son rôle.',
+        'Vérifications documentées : rejet d’un token invalide et maintien des échanges légitimes après activation des protections. Le rapport présente les étapes et les captures ; le test de refus d’une connexion sans identifiants reste à compléter.',
+        '<a class="btn" href="documents/SMARTFARM.pdf" target="_blank" rel="noopener noreferrer">Consulter le rapport Smart Farm (PDF) ↗</a>'
+      ],
       blokus: ['Mini Blokus en Python', 'Développement en Python d’une version simplifiée du jeu de société Blokus, dans le cadre de ma formation à l’EPITA.', 'L’objectif : transposer les règles du jeu en logique de programmation pour créer une version numérique du jeu de plateau.', '<strong>Ma contribution :</strong> développement du code de l’application en Python.', '<a class="btn" href="https://github.com/louisvanlaer/projet_blokus" target="_blank" rel="noopener noreferrer">Voir le projet Blokus sur GitHub ↗</a>'],
       soc: [
         'Laboratoire SOC — Détection et réponse à incident',

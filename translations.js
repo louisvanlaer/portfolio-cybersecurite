@@ -14,6 +14,10 @@
     "PROJET_03": "PROJECT_03",
     "PROJET_04": "PROJECT_04",
     "PROJET_05": "PROJECT_05",
+    "PROJET_06": "PROJECT_06",
+    "Projet en binôme · EPITA": "Two-person project · EPITA",
+    "Simulation d’une ferme connectée en Python avec MQTT : capteurs de température et d’humidité, ventilation et irrigation automatisées. Sécurisation progressive des échanges par authentification, chiffrement AES, protection anti-rejeu et contrôle d’accès.": "Python simulation of a connected farm using MQTT: temperature and humidity sensors, automated ventilation and irrigation. Progressive security improvements through authentication, AES encryption, replay protection and access control.",
+    "Consulter le rapport Smart Farm (PDF) ↗": "Read the Smart Farm report (PDF) ↗",
     "01 / EXPLORER": "01 / EXPLORE",
     "02 / RÉFLÉCHIR": "02 / THINK",
     "03 / BOUGER": "03 / MOVE",
@@ -85,6 +89,15 @@
   };
   english['Explorer mes projets →'] = 'Explore my projects →';
   const projectsEnglish = {
+    smartfarm: [
+      'Smart Farm IoT',
+      'Mini-project completed with Ziyad Makroum: a Python simulation of a connected farm, with two sensors, a controller and two actuators communicating over MQTT through a Mosquitto broker.',
+      'Automation: sensors publish temperature and humidity readings. The controller activates ventilation above 30 °C and irrigation below 40% humidity; actuators are simulated in the console.',
+      'Analysis and security: inspected plaintext messages with Wireshark, added authentication tokens and AES message encryption, then implemented replay checks using timestamps and nonces.',
+      'Access control: disabled anonymous broker connections, added accounts and configured ACLs to restrict each device to the topics required for its role.',
+      'Documented checks: rejected an invalid token and confirmed that legitimate communication continued after enabling the protections. The report covers the implementation and screenshots; testing rejection of a connection without credentials remains to be completed.',
+      '<a class="btn" href="documents/SMARTFARM.pdf" target="_blank" rel="noopener noreferrer">Read the Smart Farm report (PDF) ↗</a>'
+    ],
     blokus: ['Mini Blokus in Python', 'Developing a simplified version of the Blokus board game in Python as part of my studies at EPITA.', 'Objective: translate the rules into programming logic to create a digital board game.', '<strong>My contribution:</strong> developing the application code in Python.', '<a class="btn" href="https://github.com/louisvanlaer/projet_blokus" target="_blank" rel="noopener noreferrer">View the Blokus project on GitHub ↗</a>'],
     soc: [
       'SOC Lab — Detection and Incident Response',
